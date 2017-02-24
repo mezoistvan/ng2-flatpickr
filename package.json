@@ -1,0 +1,23 @@
+{
+  "name": "ng2-flatpickr",
+  "version": "0.0.1",
+  "description": "Angular 2+ wrapper for flatpickr",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mezoistvan/ng2-flatpickr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mezoistvan/ng2-flatpickr/issues"
+  },
+  "homepage": "https://github.com/mezoistvan/ng2-flatpickr#readme",
+  "dependencies": {
+    "@angular/core": "^2.4.8",
+    "flatpickr": "^2.4.2"
+  }
+}
