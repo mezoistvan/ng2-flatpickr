@@ -1,4 +1,3 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,26 +7,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
+import { Component, ViewChild } from '@angular/core';
 require('flatpickr');
-var Ng2FlatpickrComponent = (function () {
-    function Ng2FlatpickrComponent() {
-    }
-    Ng2FlatpickrComponent.prototype.ngAfterViewInit = function () {
+let Ng2FlatpickrComponent = class Ng2FlatpickrComponent {
+    ngAfterViewInit() {
         this.flatpickr = this.flatpickrElement.nativeElement.flatpickr({});
-    };
-    return Ng2FlatpickrComponent;
-}());
+    }
+};
 __decorate([
-    core_1.ViewChild('flatpickr'),
+    ViewChild('flatpickr'),
     __metadata("design:type", Object)
 ], Ng2FlatpickrComponent.prototype, "flatpickrElement", void 0);
 Ng2FlatpickrComponent = __decorate([
-    core_1.Component({
+    Component({
         selector: 'ng2-flatpickr',
         templateUrl: 'ng2-flatpickr.component.html'
     })
 ], Ng2FlatpickrComponent);
-exports.Ng2FlatpickrComponent = Ng2FlatpickrComponent;
+export { Ng2FlatpickrComponent };
 //# sourceMappingURL=ng2-flatpickr.component.js.map
