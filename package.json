@@ -1,6 +1,6 @@
 {
   "name": "ng2-flatpickr",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Angular 2+ wrapper for flatpickr",
   "main": "index.js",
   "scripts": {

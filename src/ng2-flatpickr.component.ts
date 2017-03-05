@@ -3,7 +3,10 @@ require( 'flatpickr' );
 
 @Component({
 	selector: 'ng2-flatpickr', 
-	templateUrl: 'ng2-flatpickr.component.html'
+	template: `
+		<div #flatpickr>
+			<input type="text">
+		</div>`
 })
 export class Ng2FlatpickrComponent implements AfterViewInit {
 
