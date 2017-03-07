@@ -7,25 +7,51 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, forwardRef } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 require('flatpickr');
-let Ng2FlatpickrComponent = class Ng2FlatpickrComponent {
+let Ng2FlatpickrComponent = Ng2FlatpickrComponent_1 = class Ng2FlatpickrComponent {
+    constructor() {
+        this.defaultFlatpickrOptions = {
+            wrap: true,
+            clickOpens: true,
+            onChange: (selectedDates) => { this.writeValue(selectedDates); }
+        };
+        this.propagateChange = (_) => { };
+    }
+    ///////////////////////////////////
+    writeValue(value) {
+        this.propagateChange = value;
+    }
+    registerOnChange(fn) {
+        this.propagateChange = fn;
+    }
+    registerOnTouched() { }
+    ///////////////////////////////////
     ngAfterViewInit() {
-        this.flatpickr = this.flatpickrElement.nativeElement.flatpickr({});
+        this.flatpickr = this.flatpickrElement.nativeElement.flatpickr(this.defaultFlatpickrOptions);
     }
 };
 __decorate([
     ViewChild('flatpickr'),
     __metadata("design:type", Object)
 ], Ng2FlatpickrComponent.prototype, "flatpickrElement", void 0);
-Ng2FlatpickrComponent = __decorate([
+Ng2FlatpickrComponent = Ng2FlatpickrComponent_1 = __decorate([
     Component({
         selector: 'ng2-flatpickr',
         template: `
 		<div #flatpickr>
-			<input type="text">
-		</div>`
+			<input type="text" data-input>
+		</div>`,
+        providers: [
+            {
+                provide: NG_VALUE_ACCESSOR,
+                useExisting: forwardRef(() => Ng2FlatpickrComponent_1),
+                multi: true
+            }
+        ]
     })
 ], Ng2FlatpickrComponent);
 export { Ng2FlatpickrComponent };
+var Ng2FlatpickrComponent_1;
 //# sourceMappingURL=ng2-flatpickr.component.js.map
