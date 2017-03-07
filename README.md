@@ -1,6 +1,8 @@
 # ng2-flatpickr
 Angular 2+ wrapper for flatpickr
 
+Examples are under construction here: https://mezoistvan.github.io/ng2-flatpickr-examples/.
+
 ```javascript
 npm install --save ng2-flatpickr
 ```
