@@ -22,7 +22,7 @@ import { Ng2FlatpickrComponent } from 'ng2-flatpickr/ng2-flatpickr';
 Example usage in a form component html template:
 
 ```javascript
-<ng2-flatpickr formControlValue="formControlName"></ng2-flatpickr>
+<ng2-flatpickr formControlName="formControlName"></ng2-flatpickr>
 ```
 
 Flatpickr css needs to be loaded separately. when using `@angular/cli`, load it in `angular-cli.json`.
