@@ -4,6 +4,7 @@ export declare class Ng2FlatpickrComponent implements AfterViewInit, ControlValu
     private flatpickr;
     private defaultFlatpickrOptions;
     flatpickrElement: any;
+    config: object;
     writeValue(value: any): void;
     registerOnChange(fn: any): void;
     registerOnTouched(): void;

@@ -25,6 +25,16 @@ Example usage in a form component html template:
 <ng2-flatpickr formControlName="formControlName"></ng2-flatpickr>
 ```
 
+Overwrite the default flatpickr properties by inputting any of the flatpickr options: https://chmln.github.io/flatpickr/options/ 
+
+```javascript
+let exampleOptions = {
+  defaultDate: '2017-03-15'
+};
+
+<ng2-flatpickr [config]="exampleOptions" formControlName="formControlName"></ng2-flatpickr>
+```
+
 Flatpickr css needs to be loaded separately. when using `@angular/cli`, load it in `angular-cli.json`.
 
 ```javascript
