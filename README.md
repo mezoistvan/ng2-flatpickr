@@ -46,7 +46,5 @@ Flatpickr css needs to be loaded separately. when using `@angular/cli`, load it 
 ### v0.1.4
 Usable in forms. Flatpickr opens on click.
 
-next version (coming in a few days):
-
 ### v0.1.5
 Input flatpickr options object.
