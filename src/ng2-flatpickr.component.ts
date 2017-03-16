@@ -1,4 +1,4 @@
-import { Component, ViewChild, AfterViewInit, forwardRef } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 require( 'flatpickr' );
 
@@ -29,6 +29,9 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 	@ViewChild('flatpickr')
 	flatpickrElement: any;
 
+	@Input()
+	config: object;
+
 	///////////////////////////////////
 
 	writeValue( value:any ) {
@@ -46,6 +49,9 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 	///////////////////////////////////
 
 	ngAfterViewInit() {
+		if( this.config ) {
+			Object.assign( this.defaultFlatpickrOptions, this.config );
+		}
 		this.flatpickr = this.flatpickrElement.nativeElement.flatpickr( this.defaultFlatpickrOptions );
 	}	
 
