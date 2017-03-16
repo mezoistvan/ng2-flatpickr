@@ -49,4 +49,4 @@ Usable in forms. Flatpickr opens on click.
 next version (coming in a few days):
 
 ### v0.1.5
-Formatting options using @Input().
+Input flatpickr options object.
