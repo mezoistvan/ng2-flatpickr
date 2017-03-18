@@ -28,7 +28,9 @@ Example usage in a form component html template:
 Overwrite the default flatpickr properties by inputting any of the flatpickr options: https://chmln.github.io/flatpickr/options/ 
 
 ```javascript
-let exampleOptions = {
+import { FlatpickrOptions } from 'ng2-flatpickr/ng2-flatpickr';
+
+let exampleOptions: FlatpickrOptions = {
   defaultDate: '2017-03-15'
 };
 

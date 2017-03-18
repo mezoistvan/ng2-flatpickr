@@ -1,12 +1,13 @@
 import { Component, ViewChild, AfterViewInit, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { FlatpickrOptions } from './flatpickr-options.interface';
 require( 'flatpickr' );
 
 @Component({
 	selector: 'ng2-flatpickr', 
 	template: `
-		<div #flatpickr>
-			<input type="text" data-input>
+		<div class="ng2-flatpickr-input-container" #flatpickr>
+			<input class="ng2-flatpickr-input" type="text" data-input>
 		</div>`,
 	providers: [
 		{
@@ -20,7 +21,7 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 
 	private flatpickr: object;
 
-	private defaultFlatpickrOptions: object = {
+	private defaultFlatpickrOptions: FlatpickrOptions = {
 		wrap: true,
 		clickOpens: true,
 		onChange: ( selectedDates: any ) => { this.writeValue( selectedDates ); }
@@ -30,7 +31,7 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 	flatpickrElement: any;
 
 	@Input()
-	config: object;
+	config: FlatpickrOptions;
 
 	///////////////////////////////////
 
