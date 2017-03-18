@@ -7,7 +7,7 @@ require( 'flatpickr' );
 	selector: 'ng2-flatpickr', 
 	template: `
 		<div class="ng2-flatpickr-input-container" #flatpickr>
-			<input class="ng2-flatpickr-input" type="text" data-input>
+			<input class="ng2-flatpickr-input" [placeholder]="placeholder" type="text" data-input>
 		</div>`,
 	providers: [
 		{
@@ -32,6 +32,9 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 
 	@Input()
 	config: FlatpickrOptions;
+
+	@Input()
+	placeholder: string;
 
 	///////////////////////////////////
 
