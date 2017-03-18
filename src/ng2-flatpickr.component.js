@@ -43,12 +43,16 @@ __decorate([
     Input(),
     __metadata("design:type", Object)
 ], Ng2FlatpickrComponent.prototype, "config", void 0);
+__decorate([
+    Input(),
+    __metadata("design:type", String)
+], Ng2FlatpickrComponent.prototype, "placeholder", void 0);
 Ng2FlatpickrComponent = Ng2FlatpickrComponent_1 = __decorate([
     Component({
         selector: 'ng2-flatpickr',
         template: `
-		<div #flatpickr>
-			<input type="text" data-input>
+		<div class="ng2-flatpickr-input-container" #flatpickr>
+			<input class="ng2-flatpickr-input" [placeholder]="placeholder" type="text" data-input>
 		</div>`,
         providers: [
             {
