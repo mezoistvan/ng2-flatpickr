@@ -34,7 +34,7 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 	config: FlatpickrOptions;
 
 	@Input()
-	placeholder: string;
+	placeholder: string = "";
 
 	///////////////////////////////////
 
