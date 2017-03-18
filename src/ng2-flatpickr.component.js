@@ -17,6 +17,7 @@ let Ng2FlatpickrComponent = Ng2FlatpickrComponent_1 = class Ng2FlatpickrComponen
             clickOpens: true,
             onChange: (selectedDates) => { this.writeValue(selectedDates); }
         };
+        this.placeholder = "";
         this.propagateChange = (_) => { };
     }
     ///////////////////////////////////
