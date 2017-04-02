@@ -1,6 +1,6 @@
 {
   "name": "ng2-flatpickr",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Angular 2+ wrapper for flatpickr",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,7 @@
   "dependencies": {
     "flatpickr": "^2.4.2"
   },
-  "typings": "./ng2-translate.d.ts",
+  "typings": "./ng2-flatpickr.d.ts",
   "devDependencies": {
     "@angular/core": "^2.4.8",
     "@angular/forms": "^2.4.9",

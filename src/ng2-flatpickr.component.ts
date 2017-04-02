@@ -39,7 +39,7 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 	///////////////////////////////////
 
 	writeValue( value:any ) {
-		this.propagateChange = value;
+		this.propagateChange( value );
 	}
 
 	registerOnChange( fn: any ) {

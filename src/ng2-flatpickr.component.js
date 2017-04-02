@@ -22,7 +22,7 @@ let Ng2FlatpickrComponent = Ng2FlatpickrComponent_1 = class Ng2FlatpickrComponen
     }
     ///////////////////////////////////
     writeValue(value) {
-        this.propagateChange = value;
+        this.propagateChange(value);
     }
     registerOnChange(fn) {
         this.propagateChange = fn;
