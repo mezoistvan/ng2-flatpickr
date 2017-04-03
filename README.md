@@ -39,10 +39,21 @@ let exampleOptions: FlatpickrOptions = {
 <ng2-flatpickr [config]="exampleOptions" formControlName="formControlName"></ng2-flatpickr>
 ```
 
-Set a placeholder for the input
+Set a placeholder for the input:
 
 ```javascript
 <ng2-flatpickr placeholder="Pick a date!" formControlName="formControlName"></ng2-flatpickr>
+```
+
+Set a date using a string or a date object:
+
+```javascript
+let randomDateString = '1988-09-19';
+let randomDateObject = new Date( 1234567891011 );
+
+<ng2-flatpickr [dateToSet]="randomDateString" formControlName="formControlName"></ng2-flatpickr>
+<ng2-flatpickr [dateToSet]="randomDateObject" formControlName="formControlName"></ng2-flatpickr>
+
 ```
 
 Flatpickr css needs to be loaded separately. when using `@angular/cli`, load it in `angular-cli.json`.

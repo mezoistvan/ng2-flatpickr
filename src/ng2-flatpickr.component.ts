@@ -1,4 +1,4 @@
-import { Component, ViewChild, AfterViewInit, forwardRef, Input } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, forwardRef, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { FlatpickrOptions } from './flatpickr-options.interface';
 require( 'flatpickr' );
@@ -17,7 +17,7 @@ require( 'flatpickr' );
 		}
 	]
 })
-export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccessor {
+export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccessor, OnChanges {
 
 	private flatpickr: object;
 
@@ -36,6 +36,9 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 	@Input()
 	placeholder: string = "";
 
+	@Input()
+	dateToSet: string | Date;
+
 	///////////////////////////////////
 
 	writeValue( value:any ) {
@@ -52,11 +55,24 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 
 	///////////////////////////////////
 
+	setDateFromInput( date: any ) {
+		this.flatpickrElement.nativeElement._flatpickr.setDate( date, true );
+	}
+
 	ngAfterViewInit() {
 		if( this.config ) {
 			Object.assign( this.defaultFlatpickrOptions, this.config );
 		}
 		this.flatpickr = this.flatpickrElement.nativeElement.flatpickr( this.defaultFlatpickrOptions );
-	}	
+		if( this.dateToSet ) {
+			this.setDateFromInput( this.dateToSet );
+		}
+	}
+
+	ngOnChanges( changes: SimpleChanges ) {
+		if( changes.hasOwnProperty( 'dateToSet' ) && changes.dateToSet.currentValue ) {
+			this.setDateFromInput( changes.dateToSet.currentValue );
+		}
+	}
 
 }
