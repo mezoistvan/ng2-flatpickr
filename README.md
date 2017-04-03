@@ -51,8 +51,8 @@ Set a date using a string or a date object:
 let randomDateString = '1988-09-19';
 let randomDateObject = new Date( 1234567891011 );
 
-<ng2-flatpickr [dateToSet]="randomDateString" formControlName="formControlName"></ng2-flatpickr>
-<ng2-flatpickr [dateToSet]="randomDateObject" formControlName="formControlName"></ng2-flatpickr>
+<ng2-flatpickr [setDate]="randomDateString" formControlName="formControlName"></ng2-flatpickr>
+<ng2-flatpickr [setDate]="randomDateObject" formControlName="formControlName"></ng2-flatpickr>
 
 ```
 
