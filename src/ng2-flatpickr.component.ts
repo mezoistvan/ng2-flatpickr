@@ -37,7 +37,7 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 	placeholder: string = "";
 
 	@Input()
-	dateToSet: string | Date;
+	setDate: string | Date;
 
 	///////////////////////////////////
 
@@ -64,14 +64,14 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 			Object.assign( this.defaultFlatpickrOptions, this.config );
 		}
 		this.flatpickr = this.flatpickrElement.nativeElement.flatpickr( this.defaultFlatpickrOptions );
-		if( this.dateToSet ) {
-			this.setDateFromInput( this.dateToSet );
+		if( this.setDate ) {
+			this.setDateFromInput( this.setDate );
 		}
 	}
 
 	ngOnChanges( changes: SimpleChanges ) {
-		if( changes.hasOwnProperty( 'dateToSet' ) && changes.dateToSet.currentValue ) {
-			this.setDateFromInput( changes.dateToSet.currentValue );
+		if( changes.hasOwnProperty( 'setDate' ) && changes.setDate.currentValue ) {
+			this.setDateFromInput( changes.setDate.currentValue );
 		}
 	}
 
