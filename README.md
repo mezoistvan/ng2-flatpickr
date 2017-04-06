@@ -67,5 +67,7 @@ Flatpickr css needs to be loaded separately. when using `@angular/cli`, load it 
 TODOs until v1.0.0:
  - Meaningful tests
  - Coveralls
- - Examples with plunker and explanation
+ - Examples with explanation
  - Closing issues
+ - Rename to angular-flatpickr and deprecate ng2-flatpickr
+ 
