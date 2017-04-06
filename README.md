@@ -3,7 +3,7 @@
 # ng2-flatpickr
 ng2-flatpickr is a lightweight Angular 2+ wrapper for flatpickr, which is usable in reactive forms inside Angular.
 
-Examples are under construction here: https://mezoistvan.github.io/angular-flatpickr-examples/.
+Examples are under construction here: https://mezoistvan.github.io/ng2-flatpickr-examples/.
 
 ```javascript
 npm install --save ng2-flatpickr
@@ -68,6 +68,4 @@ TODOs until v1.0.0:
  - Meaningful tests
  - Coveralls
  - Examples with explanation
- - Closing issues
- - Rename to angular-flatpickr and deprecate ng2-flatpickr
- 
+ - Closing issues 
