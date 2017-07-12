@@ -39,6 +39,20 @@ let exampleOptions: FlatpickrOptions = {
 <ng2-flatpickr [config]="exampleOptions" formControlName="formControlName"></ng2-flatpickr>
 ```
 
+Add locale to the options
+
+```javascript
+import { FlatpickrOptions } from 'ng2-flatpickr/ng2-flatpickr';
+import Russian from 'flatpickr/dist/l10n/ru.js';
+
+let exampleOptions: FlatpickrOptions = {
+  locale: Russian.ru,
+  ...
+};
+
+<ng2-flatpickr [config]="exampleOptions" formControlName="formControlName"></ng2-flatpickr>
+```
+
 Set a placeholder for the input:
 
 ```javascript

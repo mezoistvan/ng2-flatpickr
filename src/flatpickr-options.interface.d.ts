@@ -14,6 +14,7 @@ export interface FlatpickrOptions {
     enableSeconds?: boolean;
     hourIncrement?: number;
     inline?: boolean;
+    locale?: Object;
     maxDate?: string | Date;
     minDate?: string | Date;
     minuteIncrement?: number;
