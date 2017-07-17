@@ -33,4 +33,7 @@ export interface FlatpickrOptions {
     utc?: boolean;
     weekNumbers?: boolean;
     wrap?: boolean;
+
+    // Needed so we can acess options[key].
+    [key:string]: any;
 }
