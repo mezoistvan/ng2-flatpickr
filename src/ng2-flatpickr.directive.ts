@@ -143,7 +143,7 @@ export class Ng2FlatpickrDirective implements AfterViewInit, OnDestroy, OnInit {
 	 *
 	 * Default:  null
 	 */
-	@Input( 'locale' ) public flatpickrLocale: object;
+	@Input( 'locale' ) public flatpickrLocale: Object;
 
 	/**
 	 * The maximum date that a user can pick to (inclusive).
@@ -402,7 +402,7 @@ export class Ng2FlatpickrDirective implements AfterViewInit, OnDestroy, OnInit {
 	 * Fire off the event emitter for the directive element, and also for the
 	 * global onChange callback, if defined.
 	 */
-	protected eventOnChange( selectedDates: Date[], dateStr: string, instance: object ): void {
+	protected eventOnChange( selectedDates: Date[], dateStr: string, instance: Object ): void {
 		let event: FlatpickrEvent = {
 			selectedDates: selectedDates,
 			dateStr: dateStr,
@@ -420,7 +420,7 @@ export class Ng2FlatpickrDirective implements AfterViewInit, OnDestroy, OnInit {
 	 * Fire off the event emitter for the directive element, and also for the
 	 * global onClose callback, if defined.
 	 */
-	protected eventOnClose( selectedDates: Date[], dateStr: string, instance: object ): void {
+	protected eventOnClose( selectedDates: Date[], dateStr: string, instance: Object ): void {
 		let event: FlatpickrEvent = {
 			selectedDates: selectedDates,
 			dateStr: dateStr,
@@ -438,7 +438,7 @@ export class Ng2FlatpickrDirective implements AfterViewInit, OnDestroy, OnInit {
 	 * Fire off the event emitter for the directive element, and also for the
 	 * global onOpen callback, if defined.
 	 */
-	protected eventOnOpen( selectedDates: Date[], dateStr: string, instance: object ): void {
+	protected eventOnOpen( selectedDates: Date[], dateStr: string, instance: Object ): void {
 		let event: FlatpickrEvent = {
 			selectedDates: selectedDates,
 			dateStr: dateStr,
@@ -456,7 +456,7 @@ export class Ng2FlatpickrDirective implements AfterViewInit, OnDestroy, OnInit {
 	 * Fire off the event emitter for the directive element, and also for the
 	 * global onReady callback, if defined.
 	 */
-	protected eventOnReady( selectedDates: Date[], dateStr: string, instance: object ): void {
+	protected eventOnReady( selectedDates: Date[], dateStr: string, instance: Object ): void {
 		let event: FlatpickrEvent = {
 			selectedDates: selectedDates,
 			dateStr: dateStr,

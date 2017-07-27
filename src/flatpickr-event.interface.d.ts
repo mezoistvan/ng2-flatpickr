@@ -14,5 +14,5 @@ export interface FlatpickrEvent {
 	/**
 	 * The Flatpickr object, containing various methods and properties.
 	 */
-	instance: object;
+	instance: Object;
 }

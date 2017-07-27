@@ -126,7 +126,7 @@ export declare class Ng2FlatpickrDirective implements AfterViewInit, OnDestroy, 
      *
      * Default:  null
      */
-    flatpickrLocale: object;
+    flatpickrLocale: Object;
     /**
      * The maximum date that a user can pick to (inclusive).
      *
@@ -251,22 +251,22 @@ export declare class Ng2FlatpickrDirective implements AfterViewInit, OnDestroy, 
      * Fire off the event emitter for the directive element, and also for the
      * global onChange callback, if defined.
      */
-    protected eventOnChange(selectedDates: Date[], dateStr: string, instance: object): void;
+    protected eventOnChange(selectedDates: Date[], dateStr: string, instance: Object): void;
     /**
      * Fire off the event emitter for the directive element, and also for the
      * global onClose callback, if defined.
      */
-    protected eventOnClose(selectedDates: Date[], dateStr: string, instance: object): void;
+    protected eventOnClose(selectedDates: Date[], dateStr: string, instance: Object): void;
     /**
      * Fire off the event emitter for the directive element, and also for the
      * global onOpen callback, if defined.
      */
-    protected eventOnOpen(selectedDates: Date[], dateStr: string, instance: object): void;
+    protected eventOnOpen(selectedDates: Date[], dateStr: string, instance: Object): void;
     /**
      * Fire off the event emitter for the directive element, and also for the
      * global onReady callback, if defined.
      */
-    protected eventOnReady(selectedDates: Date[], dateStr: string, instance: object): void;
+    protected eventOnReady(selectedDates: Date[], dateStr: string, instance: Object): void;
     /**
      * Return the configuration value for option {option}, or {defaultValue} if it
      * doesn't exist.

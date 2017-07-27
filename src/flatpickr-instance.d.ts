@@ -6,7 +6,7 @@ export class FlatpickrInstance {
 	/** The zero-indexed month number (0-11) currently displayed on the calendar. */
 	currentMonth: number;
 	/** The configuration object (defaults + user-specified options). */
-	config: object;
+	config: Object;
 
 	/** The text input element associated with flatpickr. */
 	input: HTMLElement;

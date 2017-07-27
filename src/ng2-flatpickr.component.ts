@@ -21,7 +21,7 @@ require( 'flatpickr' );
 })
 export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccessor, OnChanges {
 
-	private flatpickr: object;
+	private flatpickr: Object;
 
 	private defaultFlatpickrOptions: FlatpickrOptions = {
 		wrap: true,
@@ -72,8 +72,8 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 	}
 
 	ngOnChanges( changes: SimpleChanges ) {
-		if( changes.hasOwnProperty( 'setDate' ) && changes.setDate.currentValue ) {
-			this.setDateFromInput( changes.setDate.currentValue );
+		if( changes.hasOwnProperty( 'setDate' ) && changes[ 'setDate' ].currentValue ) {
+			this.setDateFromInput( changes[ 'setDate' ].currentValue );
 		}
 	}
 
