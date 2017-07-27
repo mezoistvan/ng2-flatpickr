@@ -213,8 +213,8 @@ let Ng2FlatpickrDirective = class Ng2FlatpickrDirective {
     getOption(option, defaultValue) {
         let localName = 'flatpickr' + option.substring(0, 1).toUpperCase()
             + option.substring(1);
-        if (typeof this[option] !== 'undefined') {
-            return this[option];
+        if (typeof this[localName] !== 'undefined') {
+            return this[localName];
         }
         else if (typeof this.flatpickrOptions[option] !== 'undefined') {
             return this.flatpickrOptions[option];
