@@ -3,7 +3,10 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { FlatpickrOptions } from './flatpickr-options.interface';
 
 declare var require: any;
-require( 'flatpickr' );
+
+if(typeof window !== 'undefined'){
+    require( 'flatpickr' );
+}
 
 @Component({
 	selector: 'ng2-flatpickr', 

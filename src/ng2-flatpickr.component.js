@@ -9,7 +9,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component, ViewChild, forwardRef, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-require('flatpickr');
+if (typeof window !== 'undefined') {
+    require('flatpickr');
+}
 let Ng2FlatpickrComponent = Ng2FlatpickrComponent_1 = class Ng2FlatpickrComponent {
     constructor() {
         this.defaultFlatpickrOptions = {
