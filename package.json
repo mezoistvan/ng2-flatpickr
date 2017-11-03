@@ -1,10 +1,10 @@
 {
   "name": "ng2-flatpickr",
-  "version": "0.1.19",
+  "version": "0.4.0",
   "description": "Angular 2+ wrapper for flatpickr",
   "main": "index.js",
   "scripts": {
-    "prepublish": "tsc",
+    "prepublish": "tsc -p ./tsconfig.json",
     "test": "echo hello world"
   },
   "repository": {
@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/mezoistvan/ng2-flatpickr#readme",
   "dependencies": {
-    "flatpickr": "^2.4.8"
+    "flatpickr": "^4.0.6"
   },
   "typings": "./ng2-flatpickr.d.ts",
   "devDependencies": {
