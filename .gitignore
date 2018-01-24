@@ -7,8 +7,11 @@ Thumbs.db
 .DS_Store
 
 # Ignored files
-*.ts
-!*.d.ts
+src/*.js
+src/*.js.map
+
+public_api.js
+public_api.js.map
 
 # IDE
 .vscode
