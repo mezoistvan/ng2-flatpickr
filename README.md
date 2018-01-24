@@ -7,17 +7,19 @@ Examples are under construction here: https://mezoistvan.github.io/ng2-flatpickr
 
 ```javascript
 npm install --save ng2-flatpickr
+yarn add ng2-flatpickr
 ```
 
-Usage: import the component to the module, then declare it in order to use it in html templates.
+# Version 1.5.0
+
+Usage: import the Ng2FlatpickrModule to your NgModule:
 
 ```javascript
-import { Ng2FlatpickrComponent } from 'ng2-flatpickr/ng2-flatpickr';
+import { Ng2FlatpickrModule } from 'ng2-flatpickr';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    Ng2FlatpickrComponent
+  imports: [
+    Ng2FlatpickrModule
     ...
 ```
 
@@ -30,7 +32,7 @@ Example usage in a form component html template:
 Overwrite the default flatpickr properties by inputting any of the flatpickr options: https://chmln.github.io/flatpickr/options/ 
 
 ```javascript
-import { FlatpickrOptions } from 'ng2-flatpickr/ng2-flatpickr';
+import { FlatpickrOptions } from 'ng2-flatpickr';
 
 let exampleOptions: FlatpickrOptions = {
   defaultDate: '2017-03-15'
@@ -42,7 +44,7 @@ let exampleOptions: FlatpickrOptions = {
 Add locale to the options
 
 ```javascript
-import { FlatpickrOptions } from 'ng2-flatpickr/ng2-flatpickr';
+import { FlatpickrOptions } from 'ng2-flatpickr';
 import Russian from 'flatpickr/dist/l10n/ru.js';
 
 let exampleOptions: FlatpickrOptions = {
@@ -77,9 +79,3 @@ Flatpickr css needs to be loaded separately. when using `@angular/cli`, load it 
   "../node_modules/flatpickr/dist/flatpickr.min.css"
 ]
 ```
-
-TODOs until v1.0.0:
- - Meaningful tests
- - Coveralls
- - Examples with explanation
- - Closing issues 
