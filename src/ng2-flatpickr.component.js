@@ -32,7 +32,9 @@ let Ng2FlatpickrComponent = Ng2FlatpickrComponent_1 = class Ng2FlatpickrComponen
     registerOnTouched() { }
     ///////////////////////////////////
     setDateFromInput(date) {
-        this.flatpickrElement.nativeElement._flatpickr.setDate(date, true);
+        if(this.flatpickrElement.nativeElement._flatpickr){
+            this.flatpickrElement.nativeElement._flatpickr.setDate(date, true);
+        }
     }
     ngAfterViewInit() {
         if (this.config) {
