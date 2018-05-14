@@ -1,6 +1,6 @@
 {
   "name": "ng2-flatpickr",
-  "version": "1.5.1",
+  "version": "5.0.2",
   "description": "Angular 2+ wrapper for flatpickr",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,7 @@
   "homepage": "https://github.com/mezoistvan/ng2-flatpickr#readme",
   "dependencies": {
     "@angular/common": "^5.0.0",
-    "flatpickr": "^4.0.6"
+    "flatpickr": "^4.4.6"
   },
   "devDependencies": {
     "@angular/core": "^5.0.0",
