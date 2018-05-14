@@ -1,6 +1,6 @@
 import { AfterViewInit, ElementRef, EventEmitter, OnDestroy, OnInit, Renderer } from '@angular/core';
 import { ControlContainer, FormControl, NgControl } from '@angular/forms';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { FlatpickrEvent } from './flatpickr-event.interface';
 import { FlatpickrInstance } from './flatpickr-instance';
 import { FlatpickrOptions } from './flatpickr-options.interface';
