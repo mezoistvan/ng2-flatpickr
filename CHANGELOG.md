@@ -1,3 +1,6 @@
+## v6.0.1
+Fixed an AOT bug in v6.0.0.
+
 ## v1.5.0:
 
 Breaking API changes. Now works with AOT.

@@ -10,7 +10,7 @@ npm install --save ng2-flatpickr
 yarn add ng2-flatpickr
 ```
 
-# For RxJS v5 use ^5.0.2 and for RxJS v6 use ^6.0.0.
+# For RxJS v5 use ^5.0.2 and for RxJS v6 use ^6.0.1.
 Your bundle size will thank you for that.
 ```
 npm install --save ng2-flatpickr@5.0.2
@@ -18,8 +18,8 @@ yarn add ng2-flatpickr@5.0.2
 
 OR
 
-npm install --save ng2-flatpickr@6.0.0
-yarn add ng2-flatpickr@6.0.0
+npm install --save ng2-flatpickr@6.0.1
+yarn add ng2-flatpickr@6.0.1
 ```
 
 # How to use:
