@@ -1,49 +1,53 @@
-import { Component, Directive, ElementRef, EventEmitter, HostListener, Input, NgModule, Output, Renderer, ViewChild, forwardRef } from '@angular/core';
-import { ControlContainer, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
+import { Component, ViewChild, forwardRef, Input, Directive, ElementRef, EventEmitter, HostListener, Output, Renderer, NgModule } from '@angular/core';
+import { NG_VALUE_ACCESSOR, ControlContainer, NgControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 if (typeof window !== 'undefined') {
     require('flatpickr');
 }
-var Ng2FlatpickrComponent = /** @class */ (function () {
-    function Ng2FlatpickrComponent() {
-        var _this = this;
+class Ng2FlatpickrComponent {
+    constructor() {
         this.defaultFlatpickrOptions = {
             wrap: true,
             clickOpens: true,
-            onChange: function (selectedDates) { _this.writeValue(selectedDates); }
+            onChange: (selectedDates) => { this.writeValue(selectedDates); }
         };
         this.placeholder = "";
-        this.propagateChange = function (_) { };
+        this.propagateChange = (_) => { };
     }
     /**
      * @param {?} value
      * @return {?}
      */
-    Ng2FlatpickrComponent.prototype.writeValue = function (value) {
+    writeValue(value) {
         this.propagateChange(value);
-    };
+    }
     /**
      * @param {?} fn
      * @return {?}
      */
-    Ng2FlatpickrComponent.prototype.registerOnChange = function (fn) {
+    registerOnChange(fn) {
         this.propagateChange = fn;
-    };
+    }
     /**
      * @return {?}
      */
-    Ng2FlatpickrComponent.prototype.registerOnTouched = function () { };
+    registerOnTouched() { }
     /**
      * @param {?} date
      * @return {?}
      */
-    Ng2FlatpickrComponent.prototype.setDateFromInput = function (date) {
+    setDateFromInput(date) {
         this.flatpickrElement.nativeElement._flatpickr.setDate(date, true);
-    };
+    }
     /**
      * @return {?}
      */
-    Ng2FlatpickrComponent.prototype.ngAfterViewInit = function () {
+    ngAfterViewInit() {
         if (this.config) {
             Object.assign(this.defaultFlatpickrOptions, this.config);
         }
@@ -51,49 +55,53 @@ var Ng2FlatpickrComponent = /** @class */ (function () {
         if (this.setDate) {
             this.setDateFromInput(this.setDate);
         }
-    };
+    }
     /**
      * @param {?} changes
      * @return {?}
      */
-    Ng2FlatpickrComponent.prototype.ngOnChanges = function (changes) {
+    ngOnChanges(changes) {
         if (changes.hasOwnProperty('setDate') && changes['setDate'].currentValue) {
             this.setDateFromInput(changes['setDate'].currentValue);
         }
-    };
-    return Ng2FlatpickrComponent;
-}());
+    }
+}
 Ng2FlatpickrComponent.decorators = [
     { type: Component, args: [{
                 selector: 'ng2-flatpickr',
-                template: "\n\t\t<div class=\"ng2-flatpickr-input-container\" #flatpickr>\n\t\t\t<input class=\"ng2-flatpickr-input\" [placeholder]=\"placeholder\" type=\"text\" data-input>\n\t\t</div>",
+                template: `
+		<div class="ng2-flatpickr-input-container" #flatpickr>
+			<input class="ng2-flatpickr-input" [placeholder]="placeholder" type="text" data-input>
+		</div>`,
                 providers: [
                     {
                         provide: NG_VALUE_ACCESSOR,
-                        useExisting: forwardRef(function () { return Ng2FlatpickrComponent; }),
+                        useExisting: forwardRef(() => Ng2FlatpickrComponent),
                         multi: true
                     }
                 ]
             },] },
 ];
-/**
- * @nocollapse
- */
-Ng2FlatpickrComponent.ctorParameters = function () { return []; };
+/** @nocollapse */
 Ng2FlatpickrComponent.propDecorators = {
-    'flatpickrElement': [{ type: ViewChild, args: ['flatpickr',] },],
-    'config': [{ type: Input },],
-    'placeholder': [{ type: Input },],
-    'setDate': [{ type: Input },],
+    "flatpickrElement": [{ type: ViewChild, args: ['flatpickr',] },],
+    "config": [{ type: Input },],
+    "placeholder": [{ type: Input },],
+    "setDate": [{ type: Input },],
 };
-var Ng2FlatpickrDirective = /** @class */ (function () {
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+class Ng2FlatpickrDirective {
     /**
      * @param {?} parent
      * @param {?} ngControl
      * @param {?} element
      * @param {?} renderer
      */
-    function Ng2FlatpickrDirective(parent, ngControl, element, renderer) {
+    constructor(parent, ngControl, element, renderer) {
         this.parent = parent;
         this.ngControl = ngControl;
         this.element = element;
@@ -127,28 +135,24 @@ var Ng2FlatpickrDirective = /** @class */ (function () {
      * Allow double-clicking on the control to open/close it.
      * @return {?}
      */
-    Ng2FlatpickrDirective.prototype.onClick = function () {
+    onClick() {
         this.flatpickr.toggle();
-    };
-    Object.defineProperty(Ng2FlatpickrDirective.prototype, "control", {
-        /**
-         * @return {?}
-         */
-        get: function () {
-            return this.parent ? this.parent.formDirective.getControl(this.ngControl) : null;
-        },
-        enumerable: true,
-        configurable: true
-    });
+    }
     /**
      * @return {?}
      */
-    Ng2FlatpickrDirective.prototype.ngAfterViewInit = function () {
+    get control() {
+        return this.parent ? this.parent.formDirective.getControl(this.ngControl) : null;
+    }
+    /**
+     * @return {?}
+     */
+    ngAfterViewInit() {
         /**
          * We cannot initialize the flatpickr instance in ngOnInit(); it will
          * randomize the date when the form control initializes.
          */
-        var nativeElement = this.element.nativeElement;
+        let /** @type {?} */ nativeElement = this.element.nativeElement;
         if (typeof nativeElement === 'undefined' || nativeElement === null) {
             throw 'Error: invalid input element specified';
         }
@@ -157,11 +161,11 @@ var Ng2FlatpickrDirective = /** @class */ (function () {
             nativeElement = nativeElement.parentNode;
         }
         this.flatpickr = /** @type {?} */ (nativeElement.flatpickr(this.flatpickrOptions));
-    };
+    }
     /**
      * @return {?}
      */
-    Ng2FlatpickrDirective.prototype.ngOnDestroy = function () {
+    ngOnDestroy() {
         if (this.flatpickr) {
             this.flatpickr.destroy();
         }
@@ -173,12 +177,11 @@ var Ng2FlatpickrDirective = /** @class */ (function () {
         this.flatpickrOnClose = undefined;
         this.flatpickrOnOpen = undefined;
         this.flatpickrOnReady = undefined;
-    };
+    }
     /**
      * @return {?}
      */
-    Ng2FlatpickrDirective.prototype.ngOnInit = function () {
-        var _this = this;
+    ngOnInit() {
         this.globalOnChange = this.flatpickrOptions.onChange;
         this.globalOnClose = this.flatpickrOptions.onClose;
         this.globalOnOpen = this.flatpickrOptions.onOpen;
@@ -220,20 +223,20 @@ var Ng2FlatpickrDirective = /** @class */ (function () {
             wrap: this.getOption('wrap', true),
         };
         // Remove unset properties
-        Object.keys(this.flatpickrOptions).forEach(function (key) {
-            (_this.flatpickrOptions[key] === undefined) &&
-                delete _this.flatpickrOptions[key];
+        Object.keys(this.flatpickrOptions).forEach((key) => {
+            (this.flatpickrOptions[key] === undefined) &&
+                delete this.flatpickrOptions[key];
         });
         if (this.control) {
             this.formControlListener = this.control.valueChanges
-                .subscribe(function (value) {
+                .subscribe((value) => {
                 if (!(value instanceof Date)) {
                     // Quietly update the value of the form control to be a
                     // Date object. This avoids any external subscribers
                     // from being notified a second time (once for the user
                     // initiated event, and once for our conversion to
                     // Date()).
-                    _this.control.setValue(new Date('' + value), {
+                    this.control.setValue(new Date('' + value), {
                         onlySelf: true,
                         emitEvent: false,
                         emitModelToViewChange: false,
@@ -242,7 +245,7 @@ var Ng2FlatpickrDirective = /** @class */ (function () {
                 }
             });
         }
-    };
+    }
     /**
      * Fire off the event emitter for the directive element, and also for the
      * global onChange callback, if defined.
@@ -251,8 +254,8 @@ var Ng2FlatpickrDirective = /** @class */ (function () {
      * @param {?} instance
      * @return {?}
      */
-    Ng2FlatpickrDirective.prototype.eventOnChange = function (selectedDates, dateStr, instance) {
-        var /** @type {?} */ event = {
+    eventOnChange(selectedDates, dateStr, instance) {
+        let /** @type {?} */ event = {
             selectedDates: selectedDates,
             dateStr: dateStr,
             instance: instance
@@ -263,7 +266,7 @@ var Ng2FlatpickrDirective = /** @class */ (function () {
         if (this.globalOnChange) {
             this.globalOnChange(event);
         }
-    };
+    }
     /**
      * Fire off the event emitter for the directive element, and also for the
      * global onClose callback, if defined.
@@ -272,8 +275,8 @@ var Ng2FlatpickrDirective = /** @class */ (function () {
      * @param {?} instance
      * @return {?}
      */
-    Ng2FlatpickrDirective.prototype.eventOnClose = function (selectedDates, dateStr, instance) {
-        var /** @type {?} */ event = {
+    eventOnClose(selectedDates, dateStr, instance) {
+        let /** @type {?} */ event = {
             selectedDates: selectedDates,
             dateStr: dateStr,
             instance: instance
@@ -284,7 +287,7 @@ var Ng2FlatpickrDirective = /** @class */ (function () {
         if (this.globalOnClose) {
             this.globalOnClose(event);
         }
-    };
+    }
     /**
      * Fire off the event emitter for the directive element, and also for the
      * global onOpen callback, if defined.
@@ -293,8 +296,8 @@ var Ng2FlatpickrDirective = /** @class */ (function () {
      * @param {?} instance
      * @return {?}
      */
-    Ng2FlatpickrDirective.prototype.eventOnOpen = function (selectedDates, dateStr, instance) {
-        var /** @type {?} */ event = {
+    eventOnOpen(selectedDates, dateStr, instance) {
+        let /** @type {?} */ event = {
             selectedDates: selectedDates,
             dateStr: dateStr,
             instance: instance
@@ -305,7 +308,7 @@ var Ng2FlatpickrDirective = /** @class */ (function () {
         if (this.globalOnOpen) {
             this.globalOnOpen(event);
         }
-    };
+    }
     /**
      * Fire off the event emitter for the directive element, and also for the
      * global onReady callback, if defined.
@@ -314,8 +317,8 @@ var Ng2FlatpickrDirective = /** @class */ (function () {
      * @param {?} instance
      * @return {?}
      */
-    Ng2FlatpickrDirective.prototype.eventOnReady = function (selectedDates, dateStr, instance) {
-        var /** @type {?} */ event = {
+    eventOnReady(selectedDates, dateStr, instance) {
+        let /** @type {?} */ event = {
             selectedDates: selectedDates,
             dateStr: dateStr,
             instance: instance
@@ -326,7 +329,7 @@ var Ng2FlatpickrDirective = /** @class */ (function () {
         if (this.globalOnReady) {
             this.globalOnReady(event);
         }
-    };
+    }
     /**
      * Return the configuration value for option {option}, or {defaultValue} if it
      * doesn't exist.
@@ -334,8 +337,8 @@ var Ng2FlatpickrDirective = /** @class */ (function () {
      * @param {?=} defaultValue
      * @return {?}
      */
-    Ng2FlatpickrDirective.prototype.getOption = function (option, defaultValue) {
-        var /** @type {?} */ localName = 'flatpickr' + option.substring(0, 1).toUpperCase()
+    getOption(option, defaultValue) {
+        let /** @type {?} */ localName = 'flatpickr' + option.substring(0, 1).toUpperCase()
             + option.substring(1);
         if (typeof this[localName] !== 'undefined') {
             return this[localName];
@@ -346,64 +349,63 @@ var Ng2FlatpickrDirective = /** @class */ (function () {
         else {
             return defaultValue;
         }
-    };
-    return Ng2FlatpickrDirective;
-}());
+    }
+}
 Ng2FlatpickrDirective.decorators = [
     { type: Directive, args: [{ selector: '[flatpickr]', exportAs: 'ng2-flatpickr' },] },
 ];
-/**
- * @nocollapse
- */
-Ng2FlatpickrDirective.ctorParameters = function () { return [
+/** @nocollapse */
+Ng2FlatpickrDirective.ctorParameters = () => [
     { type: ControlContainer, },
     { type: NgControl, },
     { type: ElementRef, },
     { type: Renderer, },
-]; };
+];
 Ng2FlatpickrDirective.propDecorators = {
-    'flatpickrOptions': [{ type: Input, args: ['flatpickr',] },],
-    'flatpickrAltFormat': [{ type: Input, args: ['altFormat',] },],
-    'flatpickrAltInput': [{ type: Input, args: ['altInput',] },],
-    'flatpickrAltInputClass': [{ type: Input, args: ['altInputClass',] },],
-    'flatpickrAllowInput': [{ type: Input, args: ['allowInput',] },],
-    'flatpickrAppendTo': [{ type: Input, args: ['appendTo',] },],
-    'flatpickrClickOpens': [{ type: Input, args: ['clickOpens',] },],
-    'flatpickrDateFormat': [{ type: Input, args: ['dateFormat',] },],
-    'flatpickrDefaultDate': [{ type: Input, args: ['defaultDate',] },],
-    'flatpickrDisable': [{ type: Input, args: ['disable',] },],
-    'flatpickrDisableMobile': [{ type: Input, args: ['disableMobile',] },],
-    'flatpickrEnable': [{ type: Input, args: ['enable',] },],
-    'flatpickrEnableTime': [{ type: Input, args: ['enableTime',] },],
-    'flatpickrEnableSeconds': [{ type: Input, args: ['enableSeconds',] },],
-    'flatpickrHourIncrement': [{ type: Input, args: ['hourIncrement',] },],
-    'flatpickrInline': [{ type: Input, args: ['inline',] },],
-    'flatpickrLocale': [{ type: Input, args: ['locale',] },],
-    'flatpickrMaxDate': [{ type: Input, args: ['maxDate',] },],
-    'flatpickrMinDate': [{ type: Input, args: ['minDate',] },],
-    'flatpickrMinuteIncrement': [{ type: Input, args: ['minuteIncrement',] },],
-    'flatpickrMode': [{ type: Input, args: ['mode',] },],
-    'flatpickrNextArrow': [{ type: Input, args: ['nextArrow',] },],
-    'flatpickrNoCalendar': [{ type: Input, args: ['noCalendar',] },],
-    'flatpickrParseDate': [{ type: Input, args: ['parseDate',] },],
-    'flatpickrPrevArrow': [{ type: Input, args: ['prevArrow',] },],
-    'flatpickrShorthandCurrentMonth': [{ type: Input, args: ['shorthandCurrentMonth',] },],
-    'flatpickrStatic': [{ type: Input, args: ['static',] },],
-    'flatpickrTime_24hr': [{ type: Input, args: ['time_24hr',] },],
-    'flatpickrUtc': [{ type: Input, args: ['utc',] },],
-    'flatpickrWeekNumbers': [{ type: Input, args: ['weekNumbers',] },],
-    'flatpickrWrap': [{ type: Input, args: ['wrap',] },],
-    'flatpickrOnChange': [{ type: Output, args: ['onChange',] },],
-    'flatpickrOnClose': [{ type: Output, args: ['onClose',] },],
-    'flatpickrOnOpen': [{ type: Output, args: ['onOpen',] },],
-    'flatpickrOnReady': [{ type: Output, args: ['onReady',] },],
-    'onClick': [{ type: HostListener, args: ['dblclick',] },],
+    "flatpickrOptions": [{ type: Input, args: ['flatpickr',] },],
+    "flatpickrAltFormat": [{ type: Input, args: ['altFormat',] },],
+    "flatpickrAltInput": [{ type: Input, args: ['altInput',] },],
+    "flatpickrAltInputClass": [{ type: Input, args: ['altInputClass',] },],
+    "flatpickrAllowInput": [{ type: Input, args: ['allowInput',] },],
+    "flatpickrAppendTo": [{ type: Input, args: ['appendTo',] },],
+    "flatpickrClickOpens": [{ type: Input, args: ['clickOpens',] },],
+    "flatpickrDateFormat": [{ type: Input, args: ['dateFormat',] },],
+    "flatpickrDefaultDate": [{ type: Input, args: ['defaultDate',] },],
+    "flatpickrDisable": [{ type: Input, args: ['disable',] },],
+    "flatpickrDisableMobile": [{ type: Input, args: ['disableMobile',] },],
+    "flatpickrEnable": [{ type: Input, args: ['enable',] },],
+    "flatpickrEnableTime": [{ type: Input, args: ['enableTime',] },],
+    "flatpickrEnableSeconds": [{ type: Input, args: ['enableSeconds',] },],
+    "flatpickrHourIncrement": [{ type: Input, args: ['hourIncrement',] },],
+    "flatpickrInline": [{ type: Input, args: ['inline',] },],
+    "flatpickrLocale": [{ type: Input, args: ['locale',] },],
+    "flatpickrMaxDate": [{ type: Input, args: ['maxDate',] },],
+    "flatpickrMinDate": [{ type: Input, args: ['minDate',] },],
+    "flatpickrMinuteIncrement": [{ type: Input, args: ['minuteIncrement',] },],
+    "flatpickrMode": [{ type: Input, args: ['mode',] },],
+    "flatpickrNextArrow": [{ type: Input, args: ['nextArrow',] },],
+    "flatpickrNoCalendar": [{ type: Input, args: ['noCalendar',] },],
+    "flatpickrParseDate": [{ type: Input, args: ['parseDate',] },],
+    "flatpickrPrevArrow": [{ type: Input, args: ['prevArrow',] },],
+    "flatpickrShorthandCurrentMonth": [{ type: Input, args: ['shorthandCurrentMonth',] },],
+    "flatpickrStatic": [{ type: Input, args: ['static',] },],
+    "flatpickrTime_24hr": [{ type: Input, args: ['time_24hr',] },],
+    "flatpickrUtc": [{ type: Input, args: ['utc',] },],
+    "flatpickrWeekNumbers": [{ type: Input, args: ['weekNumbers',] },],
+    "flatpickrWrap": [{ type: Input, args: ['wrap',] },],
+    "flatpickrOnChange": [{ type: Output, args: ['onChange',] },],
+    "flatpickrOnClose": [{ type: Output, args: ['onClose',] },],
+    "flatpickrOnOpen": [{ type: Output, args: ['onOpen',] },],
+    "flatpickrOnReady": [{ type: Output, args: ['onReady',] },],
+    "onClick": [{ type: HostListener, args: ['dblclick',] },],
 };
-var Ng2FlatpickrModule = /** @class */ (function () {
-    function Ng2FlatpickrModule() {
-    }
-    return Ng2FlatpickrModule;
-}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+class Ng2FlatpickrModule {
+}
 Ng2FlatpickrModule.decorators = [
     { type: NgModule, args: [{
                 imports: [CommonModule],
@@ -417,12 +419,19 @@ Ng2FlatpickrModule.decorators = [
                 ]
             },] },
 ];
+
 /**
- * @nocollapse
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
  */
-Ng2FlatpickrModule.ctorParameters = function () { return []; };
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 /**
  * Generated bundle index. Do not edit.
  */
+
 export { Ng2FlatpickrComponent, Ng2FlatpickrDirective, Ng2FlatpickrModule };
-//# sourceMappingURL=ng2-flatpickr.es5.js.map
+//# sourceMappingURL=ng2-flatpickr.js.map

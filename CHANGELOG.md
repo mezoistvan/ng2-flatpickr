@@ -1,3 +1,6 @@
+## v6.0.2
+This package no longer contains Angular and flatpickr as a dependency. Flatpickr has to be installed separately - see README.
+
 ## v6.0.1
 Fixed an AOT bug in v6.0.0.
 

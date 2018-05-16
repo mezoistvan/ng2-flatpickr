@@ -1,25 +1,25 @@
 [![Build Status](https://travis-ci.org/mezoistvan/ng2-flatpickr.svg?branch=master)](https://travis-ci.org/mezoistvan/ng2-flatpickr)
 
 # ng2-flatpickr
-ng2-flatpickr is a lightweight Angular 2+ wrapper for flatpickr, which is usable in reactive forms inside Angular.
+ng2-flatpickr is a lightweight Angular wrapper for flatpickr, which is usable in reactive forms inside Angular.
 
 Examples are here: https://mezoistvan.github.io/ng2-flatpickr-examples/.
 
 ```javascript
-npm install --save ng2-flatpickr
-yarn add ng2-flatpickr
+npm install --save flatpickr ng2-flatpickr
+yarn add flatpickr ng2-flatpickr
 ```
 
-# For RxJS v5 use ^5.0.2 and for RxJS v6 use ^6.0.0.
+# For RxJS v5 use ^5.0.2 and for RxJS v6 use ^6.0.2.
 Your bundle size will thank you for that.
 ```
-npm install --save ng2-flatpickr@5.0.2
-yarn add ng2-flatpickr@5.0.2
+npm install --save flatpickr ng2-flatpickr@5.0.2
+yarn add flatpickr ng2-flatpickr@5.0.2
 
 OR
 
-npm install --save ng2-flatpickr@6.0.0
-yarn add ng2-flatpickr@6.0.0
+npm install --save flatpickr ng2-flatpickr@6.0.2
+yarn add flatpickr ng2-flatpickr@6.0.2
 ```
 
 # How to use:
@@ -89,5 +89,13 @@ Flatpickr css needs to be loaded separately. when using `@angular/cli`, load it 
 ```javascript
 "styles": [
   "../node_modules/flatpickr/dist/flatpickr.min.css"
+]
+```
+
+From v6, in `angular.json`:
+
+```javascript
+"styles": [
+  "node_modules/flatpickr/dist/flatpickr.min.css"
 ]
 ```

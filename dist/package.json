@@ -1,1 +1,39 @@
-{"name":"ng2-flatpickr","version":"6.0.1","description":"Angular 2+ wrapper for flatpickr","main":"bundles/ng2-flatpickr.umd.js","scripts":{"test":"tsc -p ./tsconfig.json","build":"ng-packagr"},"repository":{"type":"git","url":"git+https://github.com/mezoistvan/ng2-flatpickr.git"},"author":"","license":"ISC","bugs":{"url":"https://github.com/mezoistvan/ng2-flatpickr/issues"},"homepage":"https://github.com/mezoistvan/ng2-flatpickr#readme","dependencies":{"@angular/common":"^6.0.1","flatpickr":"^4.4.6"},"devDependencies":{"@angular/core":"^6.0.1","@angular/forms":"^6.0.1","@types/node":"^10.0.8","ng-packagr":"^2.4.4","rxjs":"^6.1.0","typescript":"2.7.x","zone.js":"^0.8.26"},"module":"ng2-flatpickr.es5.js","es2015":"ng2-flatpickr.js","typings":"ng2-flatpickr.d.ts","metadata":"ng2-flatpickr.metadata.json"}
+{
+  "name": "ng2-flatpickr",
+  "version": "6.0.2",
+  "description": "Angular 2+ wrapper for flatpickr",
+  "main": "bundles/ng2-flatpickr.umd.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mezoistvan/ng2-flatpickr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mezoistvan/ng2-flatpickr/issues"
+  },
+  "homepage": "https://github.com/mezoistvan/ng2-flatpickr#readme",
+  "peerDependencies": {
+    "flatpickr": "^4.4.6"
+  },
+  "devDependencies": {
+    "@angular/common": ">=4.0.0 <7.0.0",
+    "@angular/forms": ">=4.0.0 <7.0.0",
+    "@angular/core": ">=4.0.0 <7.0.0",
+    "@angular/compiler-cli": ">=4.0.0 <7.0.0",
+    "@angular/compiler": ">=4.0.0 <7.0.0",
+    "@angular/platform-browser": ">=4.0.0 <7.0.0",
+    "@types/node": "^10.0.8",
+    "ng-packagr": "^2.4.4",
+    "rxjs": "^6.1.0",
+    "typescript": "2.7.x",
+    "zone.js": "^0.8.26"
+  },
+  "module": "esm5/ng2-flatpickr.js",
+  "es2015": "esm2015/ng2-flatpickr.js",
+  "typings": "ng2-flatpickr.d.ts",
+  "metadata": "ng2-flatpickr.metadata.json",
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}
