@@ -12,7 +12,7 @@ if(typeof window !== 'undefined'){
 	selector: 'ng2-flatpickr',
 	template: `
 		<div class="ng2-flatpickr-input-container" #flatpickr>
-			<input class="ng2-flatpickr-input" [placeholder]="placeholder" [tabindex]="tabindex" type="text" data-input>
+			<input class="ng2-flatpickr-input {{ addClass }}" [placeholder]="placeholder" [tabindex]="tabindex" type="text" data-input>
 		</div>`,
 	providers: [
 		{
@@ -41,6 +41,9 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 
 	@Input()
 	placeholder: string = "";
+
+  @Input()
+	addClass: string = "";
 
 	@Input()
 	setDate: string | Date;
