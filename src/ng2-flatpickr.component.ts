@@ -47,7 +47,7 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 
   @Input()
   get tabindex() { return this._tabindex; }
-  set tabindex(ti: number) { this._tabindex = Number(ti); }
+  set tabindex( ti: number ) { this._tabindex = Number( ti ); }
 
 	///////////////////////////////////
 
