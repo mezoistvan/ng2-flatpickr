@@ -12,8 +12,10 @@ if(typeof window !== 'undefined'){
 	selector: 'ng2-flatpickr', 
 	template: `
 		<div class="ng2-flatpickr-input-container" #flatpickr>
-			<input class="ng2-flatpickr-input" [placeholder]="placeholder" type="text" data-input>
-		</div>`,
+			<input *ngIf="!hideButton" class="ng2-flatpickr-input" [placeholder]="placeholder" type="text" data-input>
+			<ng-content></ng-content>
+		</div>
+		`,
 	providers: [
 		{
 			provide: NG_VALUE_ACCESSOR,
@@ -44,6 +46,8 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 	@Input()
 	setDate: string | Date;
 
+	@Input()
+	hideButton = false;
 	///////////////////////////////////
 
 	writeValue( value:any ) {
