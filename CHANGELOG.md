@@ -1,3 +1,7 @@
+# v7.0.0
+Merged #51 (Add ng-content in case button is not wanted) and #54 (Add option for tabindex and to add classes to input
+).
+
 ## v6.0.2
 This package no longer contains Angular and flatpickr as a dependency. Flatpickr has to be installed separately - see README.
 
