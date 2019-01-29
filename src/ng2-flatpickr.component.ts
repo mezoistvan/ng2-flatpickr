@@ -12,8 +12,10 @@ if(typeof window !== 'undefined'){
 	selector: 'ng2-flatpickr',
 	template: `
 		<div class="ng2-flatpickr-input-container" #flatpickr>
-			<input class="ng2-flatpickr-input {{ addClass }}" [placeholder]="placeholder" [tabindex]="tabindex" type="text" data-input>
-		</div>`,
+			<input *ngIf="!hideButton" class="ng2-flatpickr-input {{ addClass }}" [placeholder]="placeholder" [tabindex]="tabindex" type="text" data-input>
+			<ng-content></ng-content>
+		</div>
+		`,
 	providers: [
 		{
 			provide: NG_VALUE_ACCESSOR,
@@ -51,6 +53,9 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
   @Input()
   get tabindex() { return this._tabindex; }
   set tabindex( ti: number ) { this._tabindex = Number( ti ); }
+
+	@Input()
+	hideButton = false;
 
 	///////////////////////////////////
 
