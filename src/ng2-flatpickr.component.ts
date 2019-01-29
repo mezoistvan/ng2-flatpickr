@@ -9,10 +9,10 @@ if(typeof window !== 'undefined'){
 }
 
 @Component({
-	selector: 'ng2-flatpickr', 
+	selector: 'ng2-flatpickr',
 	template: `
 		<div class="ng2-flatpickr-input-container" #flatpickr>
-			<input *ngIf="!hideButton" class="ng2-flatpickr-input" [placeholder]="placeholder" type="text" data-input>
+			<input *ngIf="!hideButton" class="ng2-flatpickr-input {{ addClass }}" [placeholder]="placeholder" [tabindex]="tabindex" type="text" data-input>
 			<ng-content></ng-content>
 		</div>
 		`,
@@ -26,7 +26,8 @@ if(typeof window !== 'undefined'){
 })
 export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccessor, OnChanges {
 
-	private flatpickr: Object;
+  private flatpickr: Object;
+  private _tabindex = 0;
 
 	private defaultFlatpickrOptions: FlatpickrOptions = {
 		wrap: true,
@@ -43,11 +44,19 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 	@Input()
 	placeholder: string = "";
 
+  @Input()
+	addClass: string = "";
+
 	@Input()
 	setDate: string | Date;
 
+  @Input()
+  get tabindex() { return this._tabindex; }
+  set tabindex( ti: number ) { this._tabindex = Number( ti ); }
+
 	@Input()
 	hideButton = false;
+
 	///////////////////////////////////
 
 	writeValue( value:any ) {
