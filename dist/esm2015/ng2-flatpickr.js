@@ -11,14 +11,26 @@ if (typeof window !== 'undefined') {
 }
 class Ng2FlatpickrComponent {
     constructor() {
+        this._tabindex = 0;
         this.defaultFlatpickrOptions = {
             wrap: true,
             clickOpens: true,
             onChange: (selectedDates) => { this.writeValue(selectedDates); }
         };
         this.placeholder = "";
+        this.addClass = "";
+        this.hideButton = false;
         this.propagateChange = (_) => { };
     }
+    /**
+     * @return {?}
+     */
+    get tabindex() { return this._tabindex; }
+    /**
+     * @param {?} ti
+     * @return {?}
+     */
+    set tabindex(ti) { this._tabindex = Number(ti); }
     /**
      * @param {?} value
      * @return {?}
@@ -71,8 +83,10 @@ Ng2FlatpickrComponent.decorators = [
                 selector: 'ng2-flatpickr',
                 template: `
 		<div class="ng2-flatpickr-input-container" #flatpickr>
-			<input class="ng2-flatpickr-input" [placeholder]="placeholder" type="text" data-input>
-		</div>`,
+			<input *ngIf="!hideButton" class="ng2-flatpickr-input {{ addClass }}" [placeholder]="placeholder" [tabindex]="tabindex" type="text" data-input>
+			<ng-content></ng-content>
+		</div>
+		`,
                 providers: [
                     {
                         provide: NG_VALUE_ACCESSOR,
@@ -87,7 +101,10 @@ Ng2FlatpickrComponent.propDecorators = {
     "flatpickrElement": [{ type: ViewChild, args: ['flatpickr',] },],
     "config": [{ type: Input },],
     "placeholder": [{ type: Input },],
+    "addClass": [{ type: Input },],
     "setDate": [{ type: Input },],
+    "tabindex": [{ type: Input },],
+    "hideButton": [{ type: Input },],
 };
 
 /**

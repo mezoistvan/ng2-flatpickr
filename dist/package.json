@@ -1,6 +1,6 @@
 {
   "name": "ng2-flatpickr",
-  "version": "6.0.2",
+  "version": "7.0.0",
   "description": "Angular 2+ wrapper for flatpickr",
   "main": "bundles/ng2-flatpickr.umd.js",
   "repository": {
@@ -17,12 +17,12 @@
     "flatpickr": "^4.4.6"
   },
   "devDependencies": {
-    "@angular/common": ">=4.0.0 <7.0.0",
-    "@angular/forms": ">=4.0.0 <7.0.0",
-    "@angular/core": ">=4.0.0 <7.0.0",
-    "@angular/compiler-cli": ">=4.0.0 <7.0.0",
-    "@angular/compiler": ">=4.0.0 <7.0.0",
-    "@angular/platform-browser": ">=4.0.0 <7.0.0",
+    "@angular/common": ">=4.0.0 <8.0.0",
+    "@angular/forms": ">=4.0.0 <8.0.0",
+    "@angular/core": ">=4.0.0 <8.0.0",
+    "@angular/compiler-cli": ">=4.0.0 <8.0.0",
+    "@angular/compiler": ">=4.0.0 <8.0.0",
+    "@angular/platform-browser": ">=4.0.0 <8.0.0",
     "@types/node": "^10.0.8",
     "ng-packagr": "^2.4.4",
     "rxjs": "^6.1.0",

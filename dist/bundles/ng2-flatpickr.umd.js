@@ -10,14 +10,23 @@ if (typeof window !== 'undefined') {
 var Ng2FlatpickrComponent = /** @class */ (function () {
     function Ng2FlatpickrComponent() {
         var _this = this;
+        this._tabindex = 0;
         this.defaultFlatpickrOptions = {
             wrap: true,
             clickOpens: true,
             onChange: function (selectedDates) { _this.writeValue(selectedDates); }
         };
         this.placeholder = "";
+        this.addClass = "";
+        this.hideButton = false;
         this.propagateChange = function (_) { };
     }
+    Object.defineProperty(Ng2FlatpickrComponent.prototype, "tabindex", {
+        get: function () { return this._tabindex; },
+        set: function (ti) { this._tabindex = Number(ti); },
+        enumerable: true,
+        configurable: true
+    });
     Ng2FlatpickrComponent.prototype.writeValue = function (value) {
         this.propagateChange(value);
     };
@@ -47,7 +56,7 @@ var Ng2FlatpickrComponent = /** @class */ (function () {
 Ng2FlatpickrComponent.decorators = [
     { type: core.Component, args: [{
                 selector: 'ng2-flatpickr',
-                template: "\n\t\t<div class=\"ng2-flatpickr-input-container\" #flatpickr>\n\t\t\t<input class=\"ng2-flatpickr-input\" [placeholder]=\"placeholder\" type=\"text\" data-input>\n\t\t</div>",
+                template: "\n\t\t<div class=\"ng2-flatpickr-input-container\" #flatpickr>\n\t\t\t<input *ngIf=\"!hideButton\" class=\"ng2-flatpickr-input {{ addClass }}\" [placeholder]=\"placeholder\" [tabindex]=\"tabindex\" type=\"text\" data-input>\n\t\t\t<ng-content></ng-content>\n\t\t</div>\n\t\t",
                 providers: [
                     {
                         provide: forms.NG_VALUE_ACCESSOR,
@@ -61,7 +70,10 @@ Ng2FlatpickrComponent.propDecorators = {
     "flatpickrElement": [{ type: core.ViewChild, args: ['flatpickr',] },],
     "config": [{ type: core.Input },],
     "placeholder": [{ type: core.Input },],
+    "addClass": [{ type: core.Input },],
     "setDate": [{ type: core.Input },],
+    "tabindex": [{ type: core.Input },],
+    "hideButton": [{ type: core.Input },],
 };
 var Ng2FlatpickrDirective = /** @class */ (function () {
     function Ng2FlatpickrDirective(parent, ngControl, element, renderer) {
