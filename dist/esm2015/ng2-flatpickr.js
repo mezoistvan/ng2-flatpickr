@@ -75,7 +75,10 @@ class Ng2FlatpickrComponent {
      * @return {?}
      */
     ngOnChanges(changes) {
-        if (changes.hasOwnProperty('setDate') && changes['setDate'].currentValue) {
+        if (this.flatpickrElement.nativeElement
+            && this.flatpickrElement.nativeElement._flatpickr
+            && changes.hasOwnProperty('setDate')
+            && changes['setDate'].currentValue) {
             this.setDateFromInput(changes['setDate'].currentValue);
         }
     }
