@@ -26,7 +26,7 @@ if(typeof window !== 'undefined'){
 })
 export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccessor, OnChanges {
 
-  private flatpickr: Object;
+  public flatpickr: Object;
   private _tabindex = 0;
 
 	private defaultFlatpickrOptions: FlatpickrOptions = {
@@ -94,23 +94,5 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 			&& changes[ 'setDate' ].currentValue ) {
 				this.setDateFromInput( changes[ 'setDate' ].currentValue );
 			}
-	}
-	
-	redraw() {
-		if (this.flatpickr) {
-			this.flatpickr.redraw();
-		}
-	}
-	
-	open() {
-		if (this.flatpickr) {
-			this.flatpickr.open();
-		}
-	}
-	
-	close() {
-		if (this.flatpickr) {
-			this.flatpickr.close();
-		}
 	}
 }
