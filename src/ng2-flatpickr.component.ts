@@ -26,7 +26,7 @@ if(typeof window !== 'undefined'){
 })
 export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccessor, OnChanges {
 
-  private flatpickr: Object;
+  public flatpickr: Object;
   private _tabindex = 0;
 
 	private defaultFlatpickrOptions: FlatpickrOptions = {
