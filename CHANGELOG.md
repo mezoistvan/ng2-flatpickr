@@ -1,3 +1,6 @@
+#7.0.3
+Merged #58 (Expose flatpickr object).
+
 # v7.0.0
 Merged #51 (Add ng-content in case button is not wanted) and #54 (Add option for tabindex and to add classes to input
 ).

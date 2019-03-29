@@ -2,7 +2,7 @@ import { AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { FlatpickrOptions } from './flatpickr-options.interface';
 export declare class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccessor, OnChanges {
-    private flatpickr;
+    flatpickr: Object;
     private _tabindex;
     private defaultFlatpickrOptions;
     flatpickrElement: any;
