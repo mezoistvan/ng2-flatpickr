@@ -10,6 +10,8 @@ export class FlatpickrInstance {
 
 	/** The text input element associated with flatpickr. */
 	input: HTMLElement;
+	/** The alt text input element associated with flatpickr. */
+	altInput: HTMLElement;
 	/**  This is the div.flatpickr-calendar element. */
 	calendarContainer: HTMLElement;
 	/** The “left arrow” element responsible for decrementing the current month. */

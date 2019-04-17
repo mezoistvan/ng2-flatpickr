@@ -59,6 +59,13 @@ class Ng2FlatpickrComponent {
         this.flatpickrElement.nativeElement._flatpickr.setDate(date, true);
     }
     /**
+     * @param {?} placeholder
+     * @return {?}
+     */
+    setAltInputPlaceholder(placeholder) {
+        this.flatpickrElement.nativeElement._flatpickr.altInput.setAttribute('placeholder', placeholder);
+    }
+    /**
      * @return {?}
      */
     ngAfterViewInit() {
@@ -76,10 +83,16 @@ class Ng2FlatpickrComponent {
      */
     ngOnChanges(changes) {
         if (this.flatpickrElement.nativeElement
-            && this.flatpickrElement.nativeElement._flatpickr
-            && changes.hasOwnProperty('setDate')
-            && changes['setDate'].currentValue) {
-            this.setDateFromInput(changes['setDate'].currentValue);
+            && this.flatpickrElement.nativeElement._flatpickr) {
+            if (changes.hasOwnProperty('setDate')
+                && changes['setDate'].currentValue) {
+                this.setDateFromInput(changes['setDate'].currentValue);
+            }
+            if (this.config.altInput
+                && changes.hasOwnProperty('placeholder')
+                && changes['placeholder'].currentValue) {
+                this.setAltInputPlaceholder(changes['placeholder'].currentValue);
+            }
         }
     }
 }
@@ -183,6 +196,18 @@ class Ng2FlatpickrDirective {
             nativeElement = nativeElement.parentNode;
         }
         this.flatpickr = (/** @type {?} */ (nativeElement.flatpickr(this.flatpickrOptions)));
+    }
+    /**
+     * @param {?} changes
+     * @return {?}
+     */
+    ngOnChanges(changes) {
+        if (this.flatpickr
+            && this.flatpickrAltInput
+            && changes.hasOwnProperty('placeholder')
+            && changes['placeholder'].currentValue) {
+            this.flatpickr.altInput.setAttribute('placeholder', changes['placeholder'].currentValue);
+        }
     }
     /**
      * @return {?}
@@ -395,6 +420,7 @@ Ng2FlatpickrDirective.ctorParameters = () => [
 ];
 Ng2FlatpickrDirective.propDecorators = {
     flatpickrOptions: [{ type: Input, args: ['flatpickr',] }],
+    placeholder: [{ type: Input, args: ['placeholder',] }],
     flatpickrAltFormat: [{ type: Input, args: ['altFormat',] }],
     flatpickrAltInput: [{ type: Input, args: ['altInput',] }],
     flatpickrAltInputClass: [{ type: Input, args: ['altInputClass',] }],

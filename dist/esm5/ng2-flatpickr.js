@@ -35,6 +35,9 @@ var Ng2FlatpickrComponent = /** @class */ (function () {
     Ng2FlatpickrComponent.prototype.setDateFromInput = function (date) {
         this.flatpickrElement.nativeElement._flatpickr.setDate(date, true);
     };
+    Ng2FlatpickrComponent.prototype.setAltInputPlaceholder = function (placeholder) {
+        this.flatpickrElement.nativeElement._flatpickr.altInput.setAttribute('placeholder', placeholder);
+    };
     Ng2FlatpickrComponent.prototype.ngAfterViewInit = function () {
         if (this.config) {
             Object.assign(this.defaultFlatpickrOptions, this.config);
@@ -46,10 +49,16 @@ var Ng2FlatpickrComponent = /** @class */ (function () {
     };
     Ng2FlatpickrComponent.prototype.ngOnChanges = function (changes) {
         if (this.flatpickrElement.nativeElement
-            && this.flatpickrElement.nativeElement._flatpickr
-            && changes.hasOwnProperty('setDate')
-            && changes['setDate'].currentValue) {
-            this.setDateFromInput(changes['setDate'].currentValue);
+            && this.flatpickrElement.nativeElement._flatpickr) {
+            if (changes.hasOwnProperty('setDate')
+                && changes['setDate'].currentValue) {
+                this.setDateFromInput(changes['setDate'].currentValue);
+            }
+            if (this.config.altInput
+                && changes.hasOwnProperty('placeholder')
+                && changes['placeholder'].currentValue) {
+                this.setAltInputPlaceholder(changes['placeholder'].currentValue);
+            }
         }
     };
     return Ng2FlatpickrComponent;
@@ -107,6 +116,14 @@ var Ng2FlatpickrDirective = /** @class */ (function () {
             nativeElement = nativeElement.parentNode;
         }
         this.flatpickr = ((nativeElement.flatpickr(this.flatpickrOptions)));
+    };
+    Ng2FlatpickrDirective.prototype.ngOnChanges = function (changes) {
+        if (this.flatpickr
+            && this.flatpickrAltInput
+            && changes.hasOwnProperty('placeholder')
+            && changes['placeholder'].currentValue) {
+            this.flatpickr.altInput.setAttribute('placeholder', changes['placeholder'].currentValue);
+        }
     };
     Ng2FlatpickrDirective.prototype.ngOnDestroy = function () {
         if (this.flatpickr) {
@@ -259,6 +276,7 @@ Ng2FlatpickrDirective.ctorParameters = function () { return [
 ]; };
 Ng2FlatpickrDirective.propDecorators = {
     flatpickrOptions: [{ type: Input, args: ['flatpickr',] }],
+    placeholder: [{ type: Input, args: ['placeholder',] }],
     flatpickrAltFormat: [{ type: Input, args: ['altFormat',] }],
     flatpickrAltInput: [{ type: Input, args: ['altInput',] }],
     flatpickrAltInputClass: [{ type: Input, args: ['altInputClass',] }],

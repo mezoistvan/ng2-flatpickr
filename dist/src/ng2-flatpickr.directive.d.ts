@@ -1,10 +1,10 @@
-import { AfterViewInit, ElementRef, EventEmitter, OnDestroy, OnInit, Renderer } from '@angular/core';
+import { AfterViewInit, ElementRef, EventEmitter, OnDestroy, OnInit, Renderer, SimpleChanges, OnChanges } from '@angular/core';
 import { ControlContainer, FormControl, NgControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { FlatpickrEvent } from './flatpickr-event.interface';
 import { FlatpickrInstance } from './flatpickr-instance';
 import { FlatpickrOptions } from './flatpickr-options.interface';
-export declare class Ng2FlatpickrDirective implements AfterViewInit, OnDestroy, OnInit {
+export declare class Ng2FlatpickrDirective implements AfterViewInit, OnDestroy, OnInit, OnChanges {
     protected parent: ControlContainer;
     protected ngControl: NgControl;
     protected element: ElementRef;
@@ -15,6 +15,12 @@ export declare class Ng2FlatpickrDirective implements AfterViewInit, OnDestroy, 
      * See https://chmln.github.io/flatpickr/options/ for full list.
      */
     flatpickrOptions: FlatpickrOptions;
+    /**
+     * Placeholder for input field.
+     *
+     * Default:  null
+     */
+    placeholder: string;
     /**
      * Exactly the same as date format, but for the altInput field.
      *
@@ -245,6 +251,7 @@ export declare class Ng2FlatpickrDirective implements AfterViewInit, OnDestroy, 
     constructor(parent: ControlContainer, ngControl: NgControl, element: ElementRef, renderer: Renderer);
     readonly control: FormControl;
     ngAfterViewInit(): void;
+    ngOnChanges(changes: SimpleChanges): void;
     ngOnDestroy(): void;
     ngOnInit(): void;
     /**

@@ -17,6 +17,7 @@ export declare class Ng2FlatpickrComponent implements AfterViewInit, ControlValu
     registerOnTouched(): void;
     propagateChange: (_: any) => void;
     setDateFromInput(date: any): void;
+    setAltInputPlaceholder(placeholder: string): void;
     ngAfterViewInit(): void;
     ngOnChanges(changes: SimpleChanges): void;
 }
