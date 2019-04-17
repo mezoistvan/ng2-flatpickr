@@ -77,6 +77,10 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 		this.flatpickrElement.nativeElement._flatpickr.setDate( date, true );
 	}
 
+	setAltInputPlaceholder( placeholder: string ) {
+		this.flatpickrElement.nativeElement._flatpickr.altInput.setAttribute( 'placeholder', placeholder );
+	}
+
 	ngAfterViewInit() {
 		if( this.config ) {
 			Object.assign( this.defaultFlatpickrOptions, this.config );
@@ -89,10 +93,18 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 
 	ngOnChanges( changes: SimpleChanges ) {
 		if( this.flatpickrElement.nativeElement 
-			&& this.flatpickrElement.nativeElement._flatpickr 
-			&& changes.hasOwnProperty( 'setDate' ) 
-			&& changes[ 'setDate' ].currentValue ) {
-				this.setDateFromInput( changes[ 'setDate' ].currentValue );
+			&& this.flatpickrElement.nativeElement._flatpickr ) {
+				
+				if( changes.hasOwnProperty( 'setDate' ) 
+					&& changes[ 'setDate' ].currentValue ) {
+						this.setDateFromInput( changes[ 'setDate' ].currentValue );
+					}
+
+				if( this.config.altInput
+					&& changes.hasOwnProperty( 'placeholder' ) 
+					&& changes[ 'placeholder' ].currentValue ) {
+						this.setAltInputPlaceholder( changes[ 'placeholder' ].currentValue );
+					}
 			}
 	}
 }
