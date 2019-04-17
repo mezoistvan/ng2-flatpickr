@@ -1,6 +1,6 @@
 import {
 	AfterViewInit, Directive, ElementRef, EventEmitter, HostListener, Input,
-	OnDestroy, OnInit, Output, Renderer, SimpleChanges
+	OnDestroy, OnInit, Output, Renderer, SimpleChanges, OnChanges
 } from '@angular/core';
 import { ControlContainer, FormControl, NgControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
@@ -9,7 +9,7 @@ import { FlatpickrInstance } from './flatpickr-instance';
 import { FlatpickrOptions } from './flatpickr-options.interface';
 
 @Directive({ selector: '[flatpickr]', exportAs: 'ng2-flatpickr' })
-export class Ng2FlatpickrDirective implements AfterViewInit, OnDestroy, OnInit {
+export class Ng2FlatpickrDirective implements AfterViewInit, OnDestroy, OnInit, OnChanges {
 	/**
 	 * The flatpickr configuration as a single object of values.
 	 *
