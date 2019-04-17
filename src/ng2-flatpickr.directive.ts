@@ -1,6 +1,6 @@
 import {
 	AfterViewInit, Directive, ElementRef, EventEmitter, HostListener, Input,
-	OnDestroy, OnInit, Output, Renderer
+	OnDestroy, OnInit, Output, Renderer, SimpleChanges, OnChanges
 } from '@angular/core';
 import { ControlContainer, FormControl, NgControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
@@ -9,13 +9,20 @@ import { FlatpickrInstance } from './flatpickr-instance';
 import { FlatpickrOptions } from './flatpickr-options.interface';
 
 @Directive({ selector: '[flatpickr]', exportAs: 'ng2-flatpickr' })
-export class Ng2FlatpickrDirective implements AfterViewInit, OnDestroy, OnInit {
+export class Ng2FlatpickrDirective implements AfterViewInit, OnDestroy, OnInit, OnChanges {
 	/**
 	 * The flatpickr configuration as a single object of values.
 	 *
 	 * See https://chmln.github.io/flatpickr/options/ for full list.
 	 */
 	@Input( 'flatpickr' ) public flatpickrOptions: FlatpickrOptions;
+
+	/**
+	 * Placeholder for input field.
+	 *
+	 * Default:  null
+	 */
+	@Input( 'placeholder' ) public placeholder: string;
 
 	/**
 	 * Exactly the same as date format, but for the altInput field.
@@ -311,6 +318,15 @@ export class Ng2FlatpickrDirective implements AfterViewInit, OnDestroy, OnInit {
 		}
 
 		this.flatpickr = <FlatpickrInstance>nativeElement.flatpickr( this.flatpickrOptions );
+	}
+
+	ngOnChanges( changes: SimpleChanges ) {
+		if( this.flatpickr
+			&& this.flatpickrAltInput
+			&& changes.hasOwnProperty( 'placeholder' ) 
+			&& changes[ 'placeholder' ].currentValue ) {
+				this.flatpickr.altInput.setAttribute( 'placeholder', changes[ 'placeholder' ].currentValue );
+			}
 	}
 
 	ngOnDestroy() {
