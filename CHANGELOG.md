@@ -1,4 +1,4 @@
-# v7.0.4
+# v7.0.5
 Merged #60 (Fixed altInput dynamic placeholder in component Ng2FlatpickrComponent) and #61 (Fixed altInput dynamic placeholder in Ng2FlatpickrDirective).
 
 ## 7.0.3

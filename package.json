@@ -1,11 +1,12 @@
 {
   "name": "ng2-flatpickr",
-  "version": "7.0.4",
+  "version": "7.0.5",
   "description": "Angular 2+ wrapper for flatpickr",
   "main": "index.js",
   "scripts": {
     "test": "tsc -p ./tsconfig.json",
-    "build": "ng-packagr -p package.json"
+    "build": "ng-packagr -p package.json",
+    "publish": "npm publish ./dist.tgz"
   },
   "repository": {
     "type": "git",
