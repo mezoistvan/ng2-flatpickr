@@ -10,18 +10,6 @@ npm install --save flatpickr ng2-flatpickr
 yarn add flatpickr ng2-flatpickr
 ```
 
-# For RxJS v5 use ^5.0.2 and for RxJS v6 use ^6.0.2.
-Your bundle size will thank you for that.
-```
-npm install --save flatpickr ng2-flatpickr@5.0.2
-yarn add flatpickr ng2-flatpickr@5.0.2
-
-OR
-
-npm install --save flatpickr ng2-flatpickr@6.0.2
-yarn add flatpickr ng2-flatpickr@6.0.2
-```
-
 # How to use:
 
 Import the Ng2FlatpickrModule to your NgModule:
@@ -98,4 +86,16 @@ From v6, in `angular.json`:
 "styles": [
   "node_modules/flatpickr/dist/flatpickr.min.css"
 ]
+```
+
+# For RxJS v5 use ^5.0.2 and for RxJS v6 use ^6.0.2.
+Your bundle size will thank you for that.
+```
+npm install --save flatpickr ng2-flatpickr@5.0.2
+yarn add flatpickr ng2-flatpickr@5.0.2
+
+OR
+
+npm install --save flatpickr ng2-flatpickr@6.0.2
+yarn add flatpickr ng2-flatpickr@6.0.2
 ```

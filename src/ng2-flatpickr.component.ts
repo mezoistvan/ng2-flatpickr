@@ -35,7 +35,9 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 		onChange: ( selectedDates: any ) => { this.writeValue( selectedDates ); }
 	};
 
-	@ViewChild('flatpickr')
+	@ViewChild('flatpickr', {
+		static: false
+	})
 	flatpickrElement: any;
 
 	@Input()
