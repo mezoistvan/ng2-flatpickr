@@ -36,7 +36,7 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 	};
 
 	@ViewChild('flatpickr', {
-		static: false
+		static: true
 	})
 	flatpickrElement: any;
 
