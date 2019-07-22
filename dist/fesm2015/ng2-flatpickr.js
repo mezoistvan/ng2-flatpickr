@@ -63,7 +63,7 @@ let Ng2FlatpickrComponent = Ng2FlatpickrComponent_1 = class Ng2FlatpickrComponen
 };
 __decorate([
     ViewChild('flatpickr', {
-        static: false
+        static: true
     }),
     __metadata("design:type", Object)
 ], Ng2FlatpickrComponent.prototype, "flatpickrElement", void 0);
