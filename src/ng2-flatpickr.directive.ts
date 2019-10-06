@@ -60,7 +60,7 @@ export class Ng2FlatpickrDirective implements AfterViewInit, OnDestroy, OnInit, 
 	 *
 	 * Default:  null
 	 */
-	@Input( 'appendTo' ) public flatpickrAppendTo: HTMLElement;
+	@Input( 'appendTo' ) public flatpickrAppendTo: any; // HTMLElement
 
 	/**
 	 * Whether clicking on the input should open the picker.
