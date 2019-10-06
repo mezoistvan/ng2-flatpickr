@@ -1,3 +1,7 @@
+/**
+ * This typedef is duplicated from the actual flatpickr package.
+ * TODO: remove this, use BaseOptions from flatpickr.
+ */
 export interface FlatpickrOptions {
     altFormat?: string;
     altInput?: boolean;
@@ -7,9 +11,9 @@ export interface FlatpickrOptions {
     clickOpens?: boolean;
     dateFormat?: string;
     defaultDate?: string | Date;
-    disable?: Array<string | Date>;
+    disable?: Array<string | Date | Function>;
     disableMobile?: boolean;
-    enable?: Array<string | Date>;
+    enable?: Array<string | Date | Function>;
     enableTime?: boolean;
     enableSeconds?: boolean;
     hourIncrement?: number;
