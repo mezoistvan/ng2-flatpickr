@@ -2,6 +2,7 @@ import { __decorate, __metadata } from 'tslib';
 import { ViewChild, Input, Component, forwardRef, EventEmitter, Output, HostListener, Directive, ElementRef, Renderer, NgModule } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NgControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import 'flatpickr';
 
 var Ng2FlatpickrComponent_1;
 if (typeof window !== 'undefined') {
@@ -41,7 +42,9 @@ let Ng2FlatpickrComponent = Ng2FlatpickrComponent_1 = class Ng2FlatpickrComponen
         if (this.config) {
             Object.assign(this.defaultFlatpickrOptions, this.config);
         }
-        this.flatpickr = this.flatpickrElement.nativeElement.flatpickr(this.defaultFlatpickrOptions);
+        if (this.flatpickrElement.nativeElement.flatpickr) {
+            this.flatpickr = this.flatpickrElement.nativeElement.flatpickr(this.defaultFlatpickrOptions);
+        }
         if (this.setDate) {
             this.setDateFromInput(this.setDate);
         }
@@ -360,7 +363,7 @@ __decorate([
 ], Ng2FlatpickrDirective.prototype, "flatpickrAllowInput", void 0);
 __decorate([
     Input('appendTo'),
-    __metadata("design:type", HTMLElement)
+    __metadata("design:type", Object)
 ], Ng2FlatpickrDirective.prototype, "flatpickrAppendTo", void 0);
 __decorate([
     Input('clickOpens'),

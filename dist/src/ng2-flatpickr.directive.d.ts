@@ -53,7 +53,7 @@ export declare class Ng2FlatpickrDirective implements AfterViewInit, OnDestroy, 
      *
      * Default:  null
      */
-    flatpickrAppendTo: HTMLElement;
+    flatpickrAppendTo: any;
     /**
      * Whether clicking on the input should open the picker.
      * You could disable this if you wish to open the calendar manually

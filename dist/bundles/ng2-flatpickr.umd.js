@@ -1,6 +1,6 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/forms'), require('@angular/common')) :
-    typeof define === 'function' && define.amd ? define('ng2-flatpickr', ['exports', '@angular/core', '@angular/forms', '@angular/common'], factory) :
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/forms'), require('@angular/common'), require('flatpickr')) :
+    typeof define === 'function' && define.amd ? define('ng2-flatpickr', ['exports', '@angular/core', '@angular/forms', '@angular/common', 'flatpickr'], factory) :
     (global = global || self, factory(global['ng2-flatpickr'] = {}, global.ng.core, global.ng.forms, global.ng.common));
 }(this, function (exports, core, forms, common) { 'use strict';
 
@@ -73,7 +73,9 @@
             if (this.config) {
                 Object.assign(this.defaultFlatpickrOptions, this.config);
             }
-            this.flatpickr = this.flatpickrElement.nativeElement.flatpickr(this.defaultFlatpickrOptions);
+            if (this.flatpickrElement.nativeElement.flatpickr) {
+                this.flatpickr = this.flatpickrElement.nativeElement.flatpickr(this.defaultFlatpickrOptions);
+            }
             if (this.setDate) {
                 this.setDateFromInput(this.setDate);
             }
@@ -393,7 +395,7 @@
         ], Ng2FlatpickrDirective.prototype, "flatpickrAllowInput", void 0);
         __decorate([
             core.Input('appendTo'),
-            __metadata("design:type", HTMLElement)
+            __metadata("design:type", Object)
         ], Ng2FlatpickrDirective.prototype, "flatpickrAppendTo", void 0);
         __decorate([
             core.Input('clickOpens'),
