@@ -70,7 +70,9 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 		this.propagateChange = fn;
 	}
 
-	registerOnTouched() {}
+	registerOnTouched(fn: any): void {
+		this.onTouchedFn = fn;
+	}
 
 	propagateChange = ( _: any ) => {};
 
