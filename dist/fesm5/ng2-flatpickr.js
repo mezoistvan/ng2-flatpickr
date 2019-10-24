@@ -1,5 +1,5 @@
-import { __decorate, __metadata } from 'tslib';
-import { ViewChild, Input, Component, forwardRef, Output, EventEmitter, HostListener, Directive, ElementRef, Renderer, NgModule } from '@angular/core';
+import { __decorate } from 'tslib';
+import { ViewChild, Input, Component, forwardRef, EventEmitter, ElementRef, Renderer, Output, HostListener, Directive, NgModule } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NgControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import 'flatpickr';
@@ -11,6 +11,7 @@ var Ng2FlatpickrComponent = /** @class */ (function () {
     function Ng2FlatpickrComponent() {
         var _this = this;
         this._tabindex = 0;
+        this.onTouchedFn = function () { };
         this.defaultFlatpickrOptions = {
             wrap: true,
             clickOpens: true,
@@ -35,7 +36,9 @@ var Ng2FlatpickrComponent = /** @class */ (function () {
     Ng2FlatpickrComponent.prototype.registerOnChange = function (fn) {
         this.propagateChange = fn;
     };
-    Ng2FlatpickrComponent.prototype.registerOnTouched = function () { };
+    Ng2FlatpickrComponent.prototype.registerOnTouched = function (fn) {
+        this.onTouchedFn = fn;
+    };
     ///////////////////////////////////
     Ng2FlatpickrComponent.prototype.setDateFromInput = function (date) {
         this.flatpickrElement.nativeElement._flatpickr.setDate(date, true);
@@ -68,42 +71,37 @@ var Ng2FlatpickrComponent = /** @class */ (function () {
             }
         }
     };
+    Ng2FlatpickrComponent.prototype.onFocus = function (event) {
+        this.onTouchedFn();
+    };
     var Ng2FlatpickrComponent_1;
     __decorate([
         ViewChild('flatpickr', {
             static: true
-        }),
-        __metadata("design:type", Object)
+        })
     ], Ng2FlatpickrComponent.prototype, "flatpickrElement", void 0);
     __decorate([
-        Input(),
-        __metadata("design:type", Object)
+        Input()
     ], Ng2FlatpickrComponent.prototype, "config", void 0);
     __decorate([
-        Input(),
-        __metadata("design:type", String)
+        Input()
     ], Ng2FlatpickrComponent.prototype, "placeholder", void 0);
     __decorate([
-        Input(),
-        __metadata("design:type", String)
+        Input()
     ], Ng2FlatpickrComponent.prototype, "addClass", void 0);
     __decorate([
-        Input(),
-        __metadata("design:type", Object)
+        Input()
     ], Ng2FlatpickrComponent.prototype, "setDate", void 0);
     __decorate([
-        Input(),
-        __metadata("design:type", Number),
-        __metadata("design:paramtypes", [Number])
+        Input()
     ], Ng2FlatpickrComponent.prototype, "tabindex", null);
     __decorate([
-        Input(),
-        __metadata("design:type", Object)
+        Input()
     ], Ng2FlatpickrComponent.prototype, "hideButton", void 0);
     Ng2FlatpickrComponent = Ng2FlatpickrComponent_1 = __decorate([
         Component({
             selector: 'ng2-flatpickr',
-            template: "\n\t\t<div class=\"ng2-flatpickr-input-container\" #flatpickr>\n\t\t\t<input *ngIf=\"!hideButton\" class=\"ng2-flatpickr-input {{ addClass }}\" [placeholder]=\"placeholder\" [tabindex]=\"tabindex\" type=\"text\" data-input>\n\t\t\t<ng-content></ng-content>\n\t\t</div>\n\t\t",
+            template: "\n\t\t<div class=\"ng2-flatpickr-input-container\" #flatpickr>\n\t\t\t<input *ngIf=\"!hideButton\" class=\"ng2-flatpickr-input {{ addClass }}\" [placeholder]=\"placeholder\" [tabindex]=\"tabindex\" type=\"text\" (focus)=\"onFocus($event)\" data-input>\n\t\t\t<ng-content></ng-content>\n\t\t</div>\n\t\t",
             providers: [
                 {
                     provide: NG_VALUE_ACCESSOR,
@@ -221,10 +219,10 @@ var Ng2FlatpickrDirective = /** @class */ (function () {
             mode: this.getOption('mode'),
             nextArrow: this.getOption('nextArrow'),
             noCalendar: this.getOption('noCalendar'),
-            onChange: this.eventOnChange,
-            onClose: this.eventOnClose,
-            onOpen: this.eventOnOpen,
-            onReady: this.eventOnReady,
+            onChange: this.eventOnChange.bind(this),
+            onClose: this.eventOnClose.bind(this),
+            onOpen: this.eventOnOpen.bind(this),
+            onReady: this.eventOnReady.bind(this),
             parseDate: this.getOption('parseDate'),
             prevArrow: this.getOption('prevArrow'),
             shorthandCurrentMonth: this.getOption('shorthandCurrentMonth'),
@@ -343,162 +341,125 @@ var Ng2FlatpickrDirective = /** @class */ (function () {
             return defaultValue;
         }
     };
+    Ng2FlatpickrDirective.ctorParameters = function () { return [
+        { type: ControlContainer },
+        { type: NgControl },
+        { type: ElementRef },
+        { type: Renderer }
+    ]; };
     __decorate([
-        Input('flatpickr'),
-        __metadata("design:type", Object)
+        Input('flatpickr')
     ], Ng2FlatpickrDirective.prototype, "flatpickrOptions", void 0);
     __decorate([
-        Input('placeholder'),
-        __metadata("design:type", String)
+        Input('placeholder')
     ], Ng2FlatpickrDirective.prototype, "placeholder", void 0);
     __decorate([
-        Input('altFormat'),
-        __metadata("design:type", String)
+        Input('altFormat')
     ], Ng2FlatpickrDirective.prototype, "flatpickrAltFormat", void 0);
     __decorate([
-        Input('altInput'),
-        __metadata("design:type", Boolean)
+        Input('altInput')
     ], Ng2FlatpickrDirective.prototype, "flatpickrAltInput", void 0);
     __decorate([
-        Input('altInputClass'),
-        __metadata("design:type", String)
+        Input('altInputClass')
     ], Ng2FlatpickrDirective.prototype, "flatpickrAltInputClass", void 0);
     __decorate([
-        Input('allowInput'),
-        __metadata("design:type", Boolean)
+        Input('allowInput')
     ], Ng2FlatpickrDirective.prototype, "flatpickrAllowInput", void 0);
     __decorate([
-        Input('appendTo'),
-        __metadata("design:type", Object)
+        Input('appendTo')
     ], Ng2FlatpickrDirective.prototype, "flatpickrAppendTo", void 0);
     __decorate([
-        Input('clickOpens'),
-        __metadata("design:type", Boolean)
+        Input('clickOpens')
     ], Ng2FlatpickrDirective.prototype, "flatpickrClickOpens", void 0);
     __decorate([
-        Input('dateFormat'),
-        __metadata("design:type", String)
+        Input('dateFormat')
     ], Ng2FlatpickrDirective.prototype, "flatpickrDateFormat", void 0);
     __decorate([
-        Input('defaultDate'),
-        __metadata("design:type", Object)
+        Input('defaultDate')
     ], Ng2FlatpickrDirective.prototype, "flatpickrDefaultDate", void 0);
     __decorate([
-        Input('disable'),
-        __metadata("design:type", Array)
+        Input('disable')
     ], Ng2FlatpickrDirective.prototype, "flatpickrDisable", void 0);
     __decorate([
-        Input('disableMobile'),
-        __metadata("design:type", Boolean)
+        Input('disableMobile')
     ], Ng2FlatpickrDirective.prototype, "flatpickrDisableMobile", void 0);
     __decorate([
-        Input('enable'),
-        __metadata("design:type", Array)
+        Input('enable')
     ], Ng2FlatpickrDirective.prototype, "flatpickrEnable", void 0);
     __decorate([
-        Input('enableTime'),
-        __metadata("design:type", Boolean)
+        Input('enableTime')
     ], Ng2FlatpickrDirective.prototype, "flatpickrEnableTime", void 0);
     __decorate([
-        Input('enableSeconds'),
-        __metadata("design:type", Boolean)
+        Input('enableSeconds')
     ], Ng2FlatpickrDirective.prototype, "flatpickrEnableSeconds", void 0);
     __decorate([
-        Input('hourIncrement'),
-        __metadata("design:type", Number)
+        Input('hourIncrement')
     ], Ng2FlatpickrDirective.prototype, "flatpickrHourIncrement", void 0);
     __decorate([
-        Input('inline'),
-        __metadata("design:type", Boolean)
+        Input('inline')
     ], Ng2FlatpickrDirective.prototype, "flatpickrInline", void 0);
     __decorate([
-        Input('locale'),
-        __metadata("design:type", Object)
+        Input('locale')
     ], Ng2FlatpickrDirective.prototype, "flatpickrLocale", void 0);
     __decorate([
-        Input('maxDate'),
-        __metadata("design:type", Object)
+        Input('maxDate')
     ], Ng2FlatpickrDirective.prototype, "flatpickrMaxDate", void 0);
     __decorate([
-        Input('minDate'),
-        __metadata("design:type", Object)
+        Input('minDate')
     ], Ng2FlatpickrDirective.prototype, "flatpickrMinDate", void 0);
     __decorate([
-        Input('minuteIncrement'),
-        __metadata("design:type", Number)
+        Input('minuteIncrement')
     ], Ng2FlatpickrDirective.prototype, "flatpickrMinuteIncrement", void 0);
     __decorate([
-        Input('mode'),
-        __metadata("design:type", String)
+        Input('mode')
     ], Ng2FlatpickrDirective.prototype, "flatpickrMode", void 0);
     __decorate([
-        Input('nextArrow'),
-        __metadata("design:type", String)
+        Input('nextArrow')
     ], Ng2FlatpickrDirective.prototype, "flatpickrNextArrow", void 0);
     __decorate([
-        Input('noCalendar'),
-        __metadata("design:type", Boolean)
+        Input('noCalendar')
     ], Ng2FlatpickrDirective.prototype, "flatpickrNoCalendar", void 0);
     __decorate([
-        Input('parseDate'),
-        __metadata("design:type", Function)
+        Input('parseDate')
     ], Ng2FlatpickrDirective.prototype, "flatpickrParseDate", void 0);
     __decorate([
-        Input('prevArrow'),
-        __metadata("design:type", String)
+        Input('prevArrow')
     ], Ng2FlatpickrDirective.prototype, "flatpickrPrevArrow", void 0);
     __decorate([
-        Input('shorthandCurrentMonth'),
-        __metadata("design:type", Boolean)
+        Input('shorthandCurrentMonth')
     ], Ng2FlatpickrDirective.prototype, "flatpickrShorthandCurrentMonth", void 0);
     __decorate([
-        Input('static'),
-        __metadata("design:type", Boolean)
+        Input('static')
     ], Ng2FlatpickrDirective.prototype, "flatpickrStatic", void 0);
     __decorate([
-        Input('time_24hr'),
-        __metadata("design:type", Boolean)
+        Input('time_24hr')
     ], Ng2FlatpickrDirective.prototype, "flatpickrTime_24hr", void 0);
     __decorate([
-        Input('utc'),
-        __metadata("design:type", Boolean)
+        Input('utc')
     ], Ng2FlatpickrDirective.prototype, "flatpickrUtc", void 0);
     __decorate([
-        Input('weekNumbers'),
-        __metadata("design:type", Boolean)
+        Input('weekNumbers')
     ], Ng2FlatpickrDirective.prototype, "flatpickrWeekNumbers", void 0);
     __decorate([
-        Input('wrap'),
-        __metadata("design:type", Boolean)
+        Input('wrap')
     ], Ng2FlatpickrDirective.prototype, "flatpickrWrap", void 0);
     __decorate([
-        Output('onChange'),
-        __metadata("design:type", EventEmitter)
+        Output('onChange')
     ], Ng2FlatpickrDirective.prototype, "flatpickrOnChange", void 0);
     __decorate([
-        Output('onClose'),
-        __metadata("design:type", EventEmitter)
+        Output('onClose')
     ], Ng2FlatpickrDirective.prototype, "flatpickrOnClose", void 0);
     __decorate([
-        Output('onOpen'),
-        __metadata("design:type", EventEmitter)
+        Output('onOpen')
     ], Ng2FlatpickrDirective.prototype, "flatpickrOnOpen", void 0);
     __decorate([
-        Output('onReady'),
-        __metadata("design:type", EventEmitter)
+        Output('onReady')
     ], Ng2FlatpickrDirective.prototype, "flatpickrOnReady", void 0);
     __decorate([
-        HostListener('dblclick'),
-        __metadata("design:type", Function),
-        __metadata("design:paramtypes", []),
-        __metadata("design:returntype", void 0)
+        HostListener('dblclick')
     ], Ng2FlatpickrDirective.prototype, "onClick", null);
     Ng2FlatpickrDirective = __decorate([
-        Directive({ selector: '[flatpickr]', exportAs: 'ng2-flatpickr' }),
-        __metadata("design:paramtypes", [ControlContainer,
-            NgControl,
-            ElementRef,
-            Renderer])
+        Directive({ selector: '[flatpickr]', exportAs: 'ng2-flatpickr' })
     ], Ng2FlatpickrDirective);
     return Ng2FlatpickrDirective;
 }());
