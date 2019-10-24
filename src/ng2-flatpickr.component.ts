@@ -12,7 +12,7 @@ if(typeof window !== 'undefined'){
 	selector: 'ng2-flatpickr',
 	template: `
 		<div class="ng2-flatpickr-input-container" #flatpickr>
-			<input *ngIf="!hideButton" class="ng2-flatpickr-input {{ addClass }}" [placeholder]="placeholder" [tabindex]="tabindex" type="text" data-input>
+			<input *ngIf="!hideButton" class="ng2-flatpickr-input {{ addClass }}" [placeholder]="placeholder" [tabindex]="tabindex" type="text" (focus)="onFocus($event)" data-input>
 			<ng-content></ng-content>
 		</div>
 		`,
@@ -26,8 +26,9 @@ if(typeof window !== 'undefined'){
 })
 export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccessor, OnChanges {
 
-  public flatpickr: Object;
-  private _tabindex = 0;
+  	public flatpickr: Object;
+  	private _tabindex = 0;
+	onTouchedFn: Function = () => { };
 
 	private defaultFlatpickrOptions: FlatpickrOptions = {
 		wrap: true,
@@ -46,15 +47,15 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 	@Input()
 	placeholder: string = "";
 
-  @Input()
+ 	@Input()
 	addClass: string = "";
 
 	@Input()
 	setDate: string | Date;
 
-  @Input()
-  get tabindex() { return this._tabindex; }
-  set tabindex( ti: number ) { this._tabindex = Number( ti ); }
+	@Input()
+	get tabindex() { return this._tabindex; }
+	set tabindex( ti: number ) { this._tabindex = Number( ti ); }
 
 	@Input()
 	hideButton = false;
@@ -69,7 +70,9 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 		this.propagateChange = fn;
 	}
 
-	registerOnTouched() {}
+	registerOnTouched(fn: any): void {
+		this.onTouchedFn = fn;
+	}
 
 	propagateChange = ( _: any ) => {};
 
@@ -110,5 +113,9 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 						this.setAltInputPlaceholder( changes[ 'placeholder' ].currentValue );
 					}
 			}
+	}
+	
+	onFocus(event: any) {
+		this.onTouchedFn();
 	}
 }
