@@ -1,7 +1,4 @@
-import {
-	AfterViewInit, Directive, ElementRef, EventEmitter, HostListener, Input,
-	OnDestroy, OnInit, Output, Renderer, SimpleChanges, OnChanges
-} from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnDestroy, OnInit, Output, Renderer2, SimpleChanges } from '@angular/core';
 import { ControlContainer, FormControl, NgControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { FlatpickrEvent } from './flatpickr-event.interface';
@@ -296,7 +293,7 @@ export class Ng2FlatpickrDirective implements AfterViewInit, OnDestroy, OnInit, 
 		protected parent: ControlContainer,
 		protected ngControl: NgControl,
 		protected element: ElementRef,
-		protected renderer: Renderer
+		protected renderer: Renderer2
 	) {}
 
 	get control(): FormControl {
@@ -313,7 +310,7 @@ export class Ng2FlatpickrDirective implements AfterViewInit, OnDestroy, OnInit, 
 		}
 
 		if (this.flatpickrOptions.wrap) {
-			this.renderer.setElementAttribute( this.element.nativeElement, 'data-input', '' );
+			this.renderer.setAttribute( this.element.nativeElement, 'data-input', '' );
 			nativeElement = nativeElement.parentNode;
 		}
 
@@ -323,7 +320,7 @@ export class Ng2FlatpickrDirective implements AfterViewInit, OnDestroy, OnInit, 
 	ngOnChanges( changes: SimpleChanges ) {
 		if( this.flatpickr
 			&& this.flatpickrAltInput
-			&& changes.hasOwnProperty( 'placeholder' ) 
+			&& changes.hasOwnProperty( 'placeholder' )
 			&& changes[ 'placeholder' ].currentValue ) {
 				this.flatpickr.altInput.setAttribute( 'placeholder', changes[ 'placeholder' ].currentValue );
 			}

@@ -14,25 +14,10 @@
   },
   "homepage": "https://github.com/mezoistvan/ng2-flatpickr#readme",
   "peerDependencies": {
-    "flatpickr": "^4.6.0"
+    "flatpickr": "^4.6.0",
+    "tslib": "^1.10.0"
   },
-  "devDependencies": {
-    "@angular/common": ">=4.0.0 <9.0.0",
-    "@angular/compiler": ">=4.0.0 <9.0.0",
-    "@angular/compiler-cli": ">=4.0.0 <9.0.0",
-    "@angular/core": ">=4.0.0 <9.0.0",
-    "@angular/forms": ">=4.0.0 <9.0.0",
-    "@angular/platform-browser": ">=4.0.0 <9.0.0",
-    "@types/node": "^12.11.7",
-    "ng-packagr": "^5.7.0",
-    "rxjs": "~6.4.0",
-    "tsickle": "^0.34.0",
-    "typescript": ">=3.4.0 <3.5.0",
-    "zone.js": "~0.9.1"
-  },
-  "dependencies": {
-    "tslib": "^1.9.0"
-  },
+  "dependencies": {},
   "module": "fesm5/ng2-flatpickr.js",
   "es2015": "fesm2015/ng2-flatpickr.js",
   "esm5": "esm5/ng2-flatpickr.js",
