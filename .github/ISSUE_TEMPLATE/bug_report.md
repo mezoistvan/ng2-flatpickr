@@ -11,7 +11,7 @@ assignees: ''
 A clear and concise description of what the bug is.
 
 **Reproduction**
-Please produce a stackblitz reproduction if possible, it's a huge help during bugfixing.
+Please produce a stackblitz reproduction if possible, it's a huge help during bugfixing. [This is a starter project with ng2-flatpickr already set up.](https://stackblitz.com/edit/ng2-flatpickr-issue-starter)
 
 **Expected behavior**
 A clear and concise description of what you expected to happen.
