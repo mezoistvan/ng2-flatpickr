@@ -72,30 +72,10 @@ let randomDateObject = new Date( 1234567891011 );
 
 ```
 
-Flatpickr css needs to be loaded separately. when using `@angular/cli`, load it in `angular-cli.json`.
-
-```javascript
-"styles": [
-  "../node_modules/flatpickr/dist/flatpickr.min.css"
-]
-```
-
-From v6, in `angular.json`:
+Flatpickr css needs to be loaded separately. when using `@angular/cli`, load it in `angular.json`.
 
 ```javascript
 "styles": [
   "node_modules/flatpickr/dist/flatpickr.min.css"
 ]
-```
-
-# For RxJS v5 use ^5.0.2 and for RxJS v6 use ^6.0.2.
-Your bundle size will thank you for that.
-```
-npm install --save flatpickr ng2-flatpickr@5.0.2
-yarn add flatpickr ng2-flatpickr@5.0.2
-
-OR
-
-npm install --save flatpickr ng2-flatpickr@6.0.2
-yarn add flatpickr ng2-flatpickr@6.0.2
 ```

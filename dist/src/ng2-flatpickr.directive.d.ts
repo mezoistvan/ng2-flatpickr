@@ -1,4 +1,4 @@
-import { AfterViewInit, ElementRef, EventEmitter, OnDestroy, OnInit, Renderer, SimpleChanges, OnChanges } from '@angular/core';
+import { AfterViewInit, ElementRef, EventEmitter, OnDestroy, OnInit, Renderer2, SimpleChanges, OnChanges } from '@angular/core';
 import { ControlContainer, FormControl, NgControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { FlatpickrEvent } from './flatpickr-event.interface';
@@ -8,7 +8,7 @@ export declare class Ng2FlatpickrDirective implements AfterViewInit, OnDestroy, 
     protected parent: ControlContainer;
     protected ngControl: NgControl;
     protected element: ElementRef;
-    protected renderer: Renderer;
+    protected renderer: Renderer2;
     /**
      * The flatpickr configuration as a single object of values.
      *
@@ -248,7 +248,7 @@ export declare class Ng2FlatpickrDirective implements AfterViewInit, OnDestroy, 
     protected formControlListener: Subscription;
     /** Allow access properties using index notation */
     [key: string]: any;
-    constructor(parent: ControlContainer, ngControl: NgControl, element: ElementRef, renderer: Renderer);
+    constructor(parent: ControlContainer, ngControl: NgControl, element: ElementRef, renderer: Renderer2);
     readonly control: FormControl;
     ngAfterViewInit(): void;
     ngOnChanges(changes: SimpleChanges): void;

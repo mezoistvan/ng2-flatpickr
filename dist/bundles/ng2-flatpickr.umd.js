@@ -351,7 +351,7 @@
                 throw 'Error: invalid input element specified';
             }
             if (this.flatpickrOptions.wrap) {
-                this.renderer.setElementAttribute(this.element.nativeElement, 'data-input', '');
+                this.renderer.setAttribute(this.element.nativeElement, 'data-input', '');
                 nativeElement = nativeElement.parentNode;
             }
             this.flatpickr = nativeElement.flatpickr(this.flatpickrOptions);
@@ -532,7 +532,7 @@
             { type: forms.ControlContainer },
             { type: forms.NgControl },
             { type: core.ElementRef },
-            { type: core.Renderer }
+            { type: core.Renderer2 }
         ]; };
         __decorate([
             core.Input('flatpickr')

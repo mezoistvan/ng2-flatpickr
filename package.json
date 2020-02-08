@@ -1,6 +1,6 @@
 {
   "name": "ng2-flatpickr",
-  "version": "8.0.5",
+  "version": "9.0.0",
   "description": "Angular 2+ wrapper for flatpickr",
   "main": "index.js",
   "scripts": {
@@ -22,18 +22,17 @@
     "flatpickr": "^4.6.0"
   },
   "devDependencies": {
-    "@angular/common": "^8.2.12",
-    "@angular/compiler": "^8.2.12",
-    "@angular/compiler-cli": "^8.2.12",
-    "@angular/core": "^8.2.12",
-    "@angular/forms": "^8.2.12",
-    "@angular/platform-browser": "^8.2.12",
+    "@angular/common": "^9.0.0",
+    "@angular/compiler": "^9.0.0",
+    "@angular/compiler-cli": "^9.0.0",
+    "@angular/core": "^9.0.0",
+    "@angular/forms": "^9.0.0",
+    "@angular/platform-browser": "^9.0.0",
     "@types/node": "^12.11.7",
-    "ng-packagr": "^5.7.0",
-    "rxjs": "~6.4.0",
-    "tsickle": "^0.34.0",
-    "typescript": ">=3.4.0 <3.5.0",
-    "zone.js": "~0.9.1"
+    "ng-packagr": "^9.0.0",
+    "rxjs": "~6.5.0",
+    "typescript": ">=3.6.0 <3.7.0",
+    "zone.js": "~0.10.2"
   },
   "ngPackage": {
     "lib": {

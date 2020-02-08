@@ -1,5 +1,5 @@
 import { __decorate } from 'tslib';
-import { ViewChild, Input, Component, forwardRef, EventEmitter, ElementRef, Renderer, Output, HostListener, Directive, NgModule } from '@angular/core';
+import { ViewChild, Input, Component, forwardRef, EventEmitter, ElementRef, Renderer2, Output, HostListener, Directive, NgModule } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NgControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import 'flatpickr';
@@ -158,7 +158,7 @@ let Ng2FlatpickrDirective = class Ng2FlatpickrDirective {
             throw 'Error: invalid input element specified';
         }
         if (this.flatpickrOptions.wrap) {
-            this.renderer.setElementAttribute(this.element.nativeElement, 'data-input', '');
+            this.renderer.setAttribute(this.element.nativeElement, 'data-input', '');
             nativeElement = nativeElement.parentNode;
         }
         this.flatpickr = nativeElement.flatpickr(this.flatpickrOptions);
@@ -339,7 +339,7 @@ Ng2FlatpickrDirective.ctorParameters = () => [
     { type: ControlContainer },
     { type: NgControl },
     { type: ElementRef },
-    { type: Renderer }
+    { type: Renderer2 }
 ];
 __decorate([
     Input('flatpickr')
