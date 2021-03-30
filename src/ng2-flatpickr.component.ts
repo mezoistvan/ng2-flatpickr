@@ -12,7 +12,7 @@ if(typeof window !== 'undefined'){
 	selector: 'ng2-flatpickr',
 	template: `
 		<div class="ng2-flatpickr-input-container" #flatpickr>
-			<input *ngIf="!hideButton" class="ng2-flatpickr-input {{ addClass }}" [placeholder]="placeholder" [tabindex]="tabindex" type="text" (focus)="onFocus($event)" data-input>
+			<input *ngIf="!hideButton" class="ng2-flatpickr-input {{ addClass }}" [placeholder]="placeholder" [tabindex]="tabindex" type="text" (focus)="onFocus($event)" data-input [disabled]="disabled">
 			<ng-content></ng-content>
 		</div>
 		`,
@@ -60,6 +60,8 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 	@Input()
 	hideButton = false;
 
+	disabled: boolean;
+
 	///////////////////////////////////
 
 	writeValue( value:any ) {
@@ -75,6 +77,10 @@ export class Ng2FlatpickrComponent implements AfterViewInit, ControlValueAccesso
 	}
 
 	propagateChange = ( _: any ) => {};
+
+	setDisabledState(isDisabled: boolean): void {
+		this.disabled = isDisabled;
+	}
 
 	///////////////////////////////////
 
