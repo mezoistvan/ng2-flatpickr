@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Ng2FlatpickrComponent } from './ng2-flatpickr.component';
 import { Ng2FlatpickrDirective } from './ng2-flatpickr.directive';
-import 'flatpickr';
+if(typeof window != 'undefined') require('flatpickr');
 
 @NgModule({
     imports: [CommonModule],
